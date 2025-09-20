@@ -212,12 +212,12 @@
     </div>
 
     <div class="gallery-container">
-      <img src="{{property.Media?.Thumbnail}}" alt="Ocean View Villa" class="main-image" id="mainImage">
+      <img src="{{property.Media.Thumbnail}}" alt="Ocean View Villa" class="main-image" id="mainImage">
 
       <div class="thumbnail-container">
-        <img src="{{property.Media?.Thumbnail}}" alt="Ocean View Villa" class="thumbnail active"
+        <img src="{{property.Media.Thumbnail}}" alt="Ocean View Villa" class="thumbnail active"
           (click)="changeImage($event)">
-        <img *ngFor="let img of property.Media?.Images" src="{{img}}" alt="Ocean View Villa" class="thumbnail"
+        <img *ngFor="let img of property.Media.Images" src="{{img}}" alt="Ocean View Villa" class="thumbnail"
           (click)="changeImage($event)">
       </div>
     </div>

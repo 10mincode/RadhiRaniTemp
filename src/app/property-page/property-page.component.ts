@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Property } from '../objects/property.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '../services/projects.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-property-page',
@@ -13,12 +14,13 @@ export class PropertyPageComponent implements OnInit {
   property!: Property;
   thumbnails = document.getElementsByClassName('thumbnail');
   mainImage: HTMLImageElement = document.getElementById('mainImage') as HTMLImageElement;;
-  googleMapUrl: string = '';
+  googleMapUrl!: SafeResourceUrl;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private propertyService: ProjectsService
+    private propertyService: ProjectsService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -27,12 +29,16 @@ export class PropertyPageComponent implements OnInit {
     this.propertyService.getPropertyById(id).subscribe(data => {
       if (data) {
         this.property = data;
+        const lat = this.property.Location.Latitude;
+        const lng = this.property.Location.Longitude;
+        this.googleMapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+          `https://maps.google.com/maps?width=100%25&height=400&hl=en&q=${lat},${lng}20+(RadhaRani%20Homes)&t=&z=14&ie=UTF8&iwloc=B&output=embed`
+        );
       }
     });
     this.thumbnails = document.getElementsByClassName('thumbnail');
-    const lat = this.property.Location.Latitude;
-    const lng = this.property.Location.Longitude;
-    this.googleMapUrl = `https://maps.google.com/maps?width=100%25&height=400&hl=en&q=35,20+(RadhaRani%20Homes)&t=&z=14&ie=UTF8&iwloc=B&output=embed`;
+
+
     this.mainImage = document.getElementById('mainImage') as HTMLImageElement;
   }
 
