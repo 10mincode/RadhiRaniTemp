@@ -1,0 +1,346 @@
+<section class="project-banner" style="background-image: url({{property.Media.Thumbnail}});">
+  <div class="project-banner-content">
+    <h1>{{property.PropertyName}}</h1>
+    <div class="location">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Malibu, California</span>
+    </div>
+    <div class="price">{{property.ShowcasePrice}} <s><span>{{property.ActualPrice}}</span></s></div>
+  </div>
+</section>
+
+<!-- Project Details -->
+<section class="project-details">
+  <div class="container">
+    <div class="project-info-grid">
+      <div class="project-description">
+        <h2>Property Description</h2>
+        <p>{{property.Description}}</p>
+
+        <div class="project-features">
+          <h3>Property Features</h3>
+          <div class="features-grid">
+            <div class="feature-item" *ngIf="property.Features.Bedrooms">
+              <i class="fas fa-bed"></i>
+              <span>{{property.Features.Bedrooms}} Bedrooms</span>
+            </div>
+            <div class="feature-item" *ngIf="property.Features.Bathrooms">
+              <i class="fas fa-bath"></i>
+              <span>{{property.Features.Bathrooms}} Bathrooms</span>
+            </div>
+            <div class="feature-item" *ngIf="property.Features.AreaSqFt">
+              <i class="fas fa-ruler-combined"></i>
+              <span>{{property.Features.AreaSqFt | number}} sq ft</span>
+            </div>
+            <div class="feature-item" *ngIf="property.Features.Amenities.Parks">
+              <i class="fas fa-tree"></i>
+              <span>Parks</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.Garden">
+              <i class="fas fa-leaf"></i>
+              <span>Garden</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.SwimmingPool">
+              <i class="fas fa-swimming-pool"></i>
+              <span>Swimming Pool</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.Gym">
+              <i class="fas fa-dumbbell"></i>
+              <span>Gym</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.Security">
+              <i class="fas fa-shield-alt"></i>
+              <span>24x7 Security</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.Parking">
+              <i class="fas fa-car"></i>
+              <span>Parking</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.PlayArea">
+              <i class="fas fa-child"></i>
+              <span>Kids Play Area</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.ClubHouse">
+              <i class="fas fa-users"></i>
+              <span>Club House</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.ShoppingCenter">
+              <i class="fas fa-store"></i>
+              <span>Shopping Center</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.PublicTransport">
+              <i class="fas fa-bus"></i>
+              <span>Public Transport</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.CCRoads">
+              <i class="fas fa-road"></i>
+              <span>CC Roads</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.PowerBackup">
+              <i class="fas fa-bolt"></i>
+              <span>Power Backup</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.Lift">
+              <i class="fas fa-elevator"></i>
+              <span>Lift</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.WaterSupply">
+              <i class="fas fa-tint"></i>
+              <span>Water Supply</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.WideSewage">
+              <i class="fas fa-toilet"></i>
+              <span>Wide Sewage System</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.RainWaterHarvesting">
+              <i class="fas fa-cloud-rain"></i>
+              <span>Rain Water Harvesting</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.FireSafety">
+              <i class="fas fa-fire-extinguisher"></i>
+              <span>Fire Safety</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.SmartHome">
+              <i class="fas fa-home"></i>
+              <span>Smart Home</span>
+            </div>
+
+            <div class="feature-item" *ngIf="property.Features.Amenities.PetFriendly">
+              <i class="fas fa-paw"></i>
+              <span>Pet Friendly</span>
+            </div>
+
+            <!-- Accessibility (loop through array) -->
+            <div class="feature-item-list" style="grid-column: span 2; display: flex; gap: 10px; flex-wrap: wrap;"
+              *ngIf="property.Features.Amenities.Accessibility.length>0">
+              <h4 style="width: 100%;">Accessibility</h4>
+              <div class="feature-item" *ngIf="property.Features.Amenities.Accessibility.includes('Ramp')">
+                <i class="fas fa-wheelchair"></i>
+                <span>Ramp</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-stairs"></i>
+                <span>Stairs</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-elevator"></i>
+                <span>Lift</span>
+              </div>
+            </div>
+
+            <div class="feature-item-list" style="grid-column: span 2; display: flex; gap: 10px; flex-wrap: wrap;"
+              *ngIf="property.Location.NearbyLandmarks.length>0">
+              <h4 style="width: 100%;">Nearby Landmarks</h4>
+              <div class="feature-item" *ngFor="let landmark of property.Location.NearbyLandmarks">
+                <i class="fas fa-location-dot"></i>
+                <span>{{landmark}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-sidebar">
+        <div class="sidebar-item">
+          <h3>Property Type</h3>
+          <p>{{property.PropertyType}}</p>
+        </div>
+        <div class="sidebar-item">
+          <h3>Price</h3>
+          <p class="price">{{property.ActualPrice}} <br> <s
+              style="text-decoration-color: red; text-decoration-thickness: 2px;">{{property.ShowcasePrice}}</s></p>
+        </div>
+        <div class="sidebar-item">
+          <h3>Location</h3>
+          <p>{{property.Location.City}}, {{property.Location.State}}</p>
+        </div>
+        <div class="sidebar-item">
+          <h3>Year Built</h3>
+          <p>{{property.Features.YearBuilt}}</p>
+        </div>
+        <div class="sidebar-item">
+          <h3>Status</h3>
+          <p>{{property.Status}}</p>
+        </div>
+
+        <div class="enquiry-form">
+          <h3 id="enquiryFormtag">Request Information</h3>
+          <form id="enquiryForm">
+            <div class="form-group">
+              <input type="text" id="enquiryName" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="enquiryEmail" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="enquiryPhone" placeholder="Your Phone">
+            </div>
+            <div class="form-group">
+              <textarea id="enquiryMessage" placeholder="Your Message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn">Send Enquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Property <span>Gallery</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="gallery-container">
+      <img src="{{property.Media?.Thumbnail}}" alt="Ocean View Villa" class="main-image" id="mainImage">
+
+      <div class="thumbnail-container">
+        <img src="{{property.Media?.Thumbnail}}" alt="Ocean View Villa" class="thumbnail active"
+          (click)="changeImage($event)">
+        <img *ngFor="let img of property.Media?.Images" src="{{img}}" alt="Ocean View Villa" class="thumbnail"
+          (click)="changeImage($event)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Floor Plans Section -->
+<!-- <section class="floor-plans-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Floor <span>Plans</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="floor-plans-container">
+      <div class="floor-plan">
+        <div class="floor-plan-image">
+          <img
+            src="https://images.unsplash.com/photo-1626177307568-c9e539a8c90d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+            alt="Ground Floor Plan">
+        </div>
+        <div class="floor-plan-info">
+          <h3>Ground Floor</h3>
+          <p>Open living spaces, gourmet kitchen, dining area, guest bedroom, and entertainment room.</p>
+          <p><strong>Size:</strong> 3,200 sq ft</p>
+        </div>
+      </div>
+
+      <div class="floor-plan">
+        <div class="floor-plan-image">
+          <img
+            src="https://images.unsplash.com/photo-1626177307568-c9e539a8c90d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+            alt="First Floor Plan">
+        </div>
+        <div class="floor-plan-info">
+          <h3>First Floor</h3>
+          <p>Master suite with private terrace, 3 additional bedrooms, and family room.</p>
+          <p><strong>Size:</strong> 2,800 sq ft</p>
+        </div>
+      </div>
+
+      <div class="floor-plan">
+        <div class="floor-plan-image">
+          <img
+            src="https://images.unsplash.com/photo-1626177307568-c9e539a8c90d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+            alt="Lower Level Plan">
+        </div>
+        <div class="floor-plan-info">
+          <h3>Lower Level</h3>
+          <p>Home theater, gym, wine cellar, and additional storage space.</p>
+          <p><strong>Size:</strong> 1,500 sq ft</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- Location Section -->
+<section class="location-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Location <span>Highlights</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="location-container">
+      <div class="location-info">
+        <h3>Prime Malibu Location</h3>
+        <p>This stunning villa is located in one of Malibu's most exclusive neighborhoods, offering privacy, security,
+          and breathtaking ocean views. The property is situated on a quiet cul-de-sac with direct access to a private
+          beach.</p>
+        <p>Malibu is renowned for its beautiful beaches, upscale dining, and celebrity residents. This property offers
+          the perfect blend of seclusion and convenience, with easy access to world-class shopping, dining, and
+          entertainment.</p>
+
+        <div class="location-features">
+          <div class="location-feature">
+            <i class="fas fa-graduation-cap"></i>
+            <div>
+              <h4>Top-rated Schools</h4>
+              <p>Access to the best educational institutions in the area</p>
+            </div>
+          </div>
+          <div class="location-feature">
+            <i class="fas fa-shopping-bag"></i>
+            <div>
+              <h4>Premium Shopping</h4>
+              <p>High-end boutiques and shopping centers nearby</p>
+            </div>
+          </div>
+          <div class="location-feature">
+            <i class="fas fa-utensils"></i>
+            <div>
+              <h4>Fine Dining</h4>
+              <p>World-class restaurants and cafes within minutes</p>
+            </div>
+          </div>
+          <div class="location-feature">
+            <i class="fas fa-road"></i>
+            <div>
+              <h4>Easy Access</h4>
+              <p>Convenient access to major highways and Los Angeles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe [src]="googleMapUrl" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Interested in This Property?</h2>
+      <p>Schedule a private viewing to experience the luxury and beauty of this exceptional oceanfront villa. Our team
+        is ready to assist you with any questions and to arrange a personalized tour at your convenience.</p>
+      <a (click)="scrollTo('enquiryFormtag')" class="btn">Schedule a Viewing</a>
+    </div>
+  </div>
+</section>

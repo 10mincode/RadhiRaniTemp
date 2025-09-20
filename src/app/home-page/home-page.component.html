@@ -1,0 +1,198 @@
+<section id="home" class="hero">
+  <div class="hero-slider">
+    <div class="slide active"
+      style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+      <div class="slide-content">
+        <h1>Premium Luxury Villas</h1>
+        <p>Experience the pinnacle of luxury living</p>
+        <a href="#projects" class="btn">Explore Properties</a>
+      </div>
+    </div>
+    <div class="slide"
+      style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+      <div class="slide-content">
+        <h1>Modern Apartments</h1>
+        <p>Contemporary living in prime locations</p>
+        <a href="#projects" class="btn">Explore Properties</a>
+      </div>
+    </div>
+    <div class="slide"
+      style="background-image: url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+      <div class="slide-content">
+        <h1>Exclusive Land Plots</h1>
+        <p>Build your dream home on premium land</p>
+        <a href="#projects" class="btn">Explore Properties</a>
+      </div>
+    </div>
+  </div>
+  <div class="slider-controls">
+    <div class="prev-btn"><i class="fas fa-chevron-left"></i></div>
+    <div class="next-btn"><i class="fas fa-chevron-right"></i></div>
+  </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header">
+      <h2>About <span>RADHARANI PROPERTIES</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-content">
+      <div class="about-text">
+        <p>With over 15 years of experience in the real estate industry, RADHARANI PROPERTIES has
+          established itself as a trusted name in premium property development and sales. Our commitment
+          to excellence, attention to detail, and customer-centric approach have made us the preferred
+          choice for discerning homebuyers and investors.</p>
+        <p>Our portfolio includes luxury villas, modern apartments, commercial spaces, and premium land
+          plots in the most sought-after locations. Each property is carefully selected and developed to
+          meet the highest standards of quality, design, and sustainability.</p>
+        <div class="values">
+          <div class="value">
+            <i class="fas fa-gem"></i>
+            <h3>Quality</h3>
+            <p>Uncompromising quality in every project</p>
+          </div>
+          <div class="value">
+            <i class="fas fa-handshake"></i>
+            <h3>Integrity</h3>
+            <p>Transparent and ethical business practices</p>
+          </div>
+          <div class="value">
+            <i class="fas fa-home"></i>
+            <h3>Innovation</h3>
+            <p>Modern designs and sustainable construction</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+          alt="Our Office">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured <span>Projects</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="filter-buttons">
+      <button class="filter-btn" [class.active]="selectedFilter==='all'" (click)="filterProjects('all')">All</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='villa'"
+        (click)="filterProjects('villa')">Villas</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='apartment'"
+        (click)="filterProjects('apartment')">Apartments</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='farm house'"
+        (click)="filterProjects('farm house')">Farm
+        House</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='land'" (click)="filterProjects('land')">Land</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='commerical space'"
+        (click)="filterProjects('commerical space')">Commercial Space</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='shop'" (click)="filterProjects('shop')">Shop</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='office space'"
+        (click)="filterProjects('office space')">Office Space</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='plot'"
+        (click)="filterProjects('plot')">Plots</button>
+    </div>
+    <div class="projects-grid">
+      <!-- Projects -->
+      <div class="project-card" *ngFor="let project of filteredProjects">
+        <div class="project-image">
+          <img src="{{project.Media.Thumbnail}}" alt="{{project.PropertyName}}">
+          <div class="project-type">{{project.PropertyType}}</div>
+        </div>
+        <div class="project-info">
+          <h3>{{project.PropertyName}}</h3>
+          <div class="location"><i class="fas fa-map-marker-alt"></i> Malibu, California</div>
+          <div class="price">{{project.ShowcasePrice}} <s>{{project.ActualPrice}}</s></div>
+          <p>{{project.Description}}</p>
+          <a [routerLink]="['/property', project.PropertyID]" class="btn">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2>Contact <span>Us</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-content">
+      <div class="contact-form-container">
+        <h3>Get In Touch</h3>
+        <form id="contactForm" (submit)="submitContact(contactform)" #contactform="ngForm">
+          <div class="form-group">
+            <input type="text" id="name" name="name" ngModel placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" ngModel placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" name="phone" ngModel placeholder="Your Phone">
+          </div>
+          <div class="form-group">
+            <select id="subject" name="subject" ngModel required>
+              <option value="">Select Subject</option>
+              <option value="general">General Inquiry</option>
+              <option value="property">Property Information</option>
+              <option value="schedule">Schedule Viewing</option>
+              <option value="valuation">Property Valuation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" ngModel placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Our Location</h4>
+            <p>123 Luxury Avenue, Beverly Hills, CA 90210</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone Number</h4>
+            <p>+1 (310) 555-1234</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email Address</h4>
+            <p>info@radharaniproperties.com</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <h4>Working Hours</h4>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+            <p>Saturday: 10:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-container">
+      <h3>Find Us On Map</h3>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d225.72150618940967!2d75.85797647275864!3d25.15109964051983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1757441570508!5m2!1sen!2sin"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+<header>
+  <div class="container">
+    <div class="logo" (click)="logoClick()">
+      <h1>RADHARANI<span>PROPERTIES</span></h1>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-btn" (click)="toggleMenu()">
+      <i class="fas fa-bars" *ngIf="!isMenuOpen"></i>
+      <i class="fas fa-times" *ngIf="isMenuOpen"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav [class.open]="!isMenuOpen">
+      <ul>
+        <li><a href="#home" (click)="closeMenu()">Home</a></li>
+        <li><a href="#about" (click)="closeMenu()">About Us</a></li>
+        <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
+        <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

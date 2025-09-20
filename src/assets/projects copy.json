@@ -1,0 +1,1142 @@
+[
+  {
+    "PropertyID": "PROP5202501XYZ",
+    "PropertyName": "Project 1",
+    "Location": {
+      "Address": "101 Main Street, City1, Rajasthan, India",
+      "City": "City1",
+      "State": "Rajasthan",
+      "PostalCode": "30001",
+      "Latitude": 26.01,
+      "Longitude": 75.01,
+      "NearbyLandmarks": [
+        "Landmark1A",
+        "Landmark1B"
+      ]
+    },
+    "Description": "Sample description for Project 1, modern amenities and prime location.",
+    "PropertyType": "Villa",
+    "Status": "Under Construction",
+    "DateListed": "2025-09-01",
+    "DateUpdated": "2025-09-02",
+    "ActualPrice": "₹60 Lakh",
+    "ShowcasePrice": "₹51 Lakh",
+    "PricePerSqFt": 5200,
+    "MaintenanceCharges": 1600,
+    "BookingAmount": 55000,
+    "OwnershipType": "Leasehold",
+    "Furnishing": "Unfurnished",
+    "Facing": "West",
+    "PropertyAge": "1 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP001",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 2,
+      "Bathrooms": 2,
+      "AreaSqFt": 1200,
+      "Floor": "1th",
+      "TotalFloors": 11,
+      "YearBuilt": 2021,
+      "Amenities": {
+        "Parks": true,
+        "Garden": false,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": false,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": false,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": false,
+        "FireSafety": true,
+        "SmartHome": true,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project1-thumb.jpg",
+      "Images": [
+        "project1-1.jpg",
+        "project1-2.jpg"
+      ],
+      "FloorPlan": "project1-floorplan.pdf",
+      "VideoTour": "https://example.com/project1-video",
+      "VirtualWalkthrough": "https://example.com/project1-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-001",
+      "AgentName": "Agent 1",
+      "Contact": "+91-9000000001",
+      "Email": "agent1@realestate.in",
+      "Agency": "Agency 1",
+      "AgencyLogo": "agency1-logo.png",
+      "Rating": 3.8,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer1",
+          "Comment": "Feedback for project 1",
+          "Rating": 2
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 1 in City1 | Premium Property",
+      "MetaDescription": "Explore Project 1, top real estate option in City1, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 550,
+      "Inquiries": 12,
+      "Tags": [
+        "Tag1",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": false,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202502XYZ",
+    "PropertyName": "Project 2",
+    "Location": {
+      "Address": "102 Main Street, City2, Rajasthan, India",
+      "City": "City2",
+      "State": "Rajasthan",
+      "PostalCode": "30002",
+      "Latitude": 26.02,
+      "Longitude": 75.02,
+      "NearbyLandmarks": [
+        "Landmark2A",
+        "Landmark2B"
+      ]
+    },
+    "Description": "Sample description for Project 2, modern amenities and prime location.",
+    "PropertyType": "Apartment",
+    "Status": "Available",
+    "DateListed": "2025-09-02",
+    "DateUpdated": "2025-09-03",
+    "ActualPrice": 7000000,
+    "ShowcasePrice": "₹52 Lakh",
+    "PricePerSqFt": 5400,
+    "MaintenanceCharges": 1700,
+    "BookingAmount": 60000,
+    "OwnershipType": "Freehold",
+    "Furnishing": "Unfurnished",
+    "Facing": "North",
+    "PropertyAge": "2 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP002",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 3,
+      "Bathrooms": 3,
+      "AreaSqFt": 1400,
+      "Floor": "2th",
+      "TotalFloors": 12,
+      "YearBuilt": 2022,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": false,
+        "ClubHouse": false,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": false,
+        "FireSafety": true,
+        "SmartHome": false,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project2-thumb.jpg",
+      "Images": [
+        "project2-1.jpg",
+        "project2-2.jpg"
+      ],
+      "FloorPlan": "project2-floorplan.pdf",
+      "VideoTour": "https://example.com/project2-video",
+      "VirtualWalkthrough": "https://example.com/project2-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-002",
+      "AgentName": "Agent 2",
+      "Contact": "+91-9000000002",
+      "Email": "agent2@realestate.in",
+      "Agency": "Agency 2",
+      "AgencyLogo": "agency2-logo.png",
+      "Rating": 4.1,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer2",
+          "Comment": "Feedback for project 2",
+          "Rating": 3
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 2 in City2 | Premium Property",
+      "MetaDescription": "Explore Project 2, top real estate option in City2, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 600,
+      "Inquiries": 14,
+      "Tags": [
+        "Tag2",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": true,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202503XYZ",
+    "PropertyName": "Project 3",
+    "Location": {
+      "Address": "103 Main Street, City3, Rajasthan, India",
+      "City": "City3",
+      "State": "Rajasthan",
+      "PostalCode": "30003",
+      "Latitude": 26.03,
+      "Longitude": 75.03,
+      "NearbyLandmarks": [
+        "Landmark3A",
+        "Landmark3B"
+      ]
+    },
+    "Description": "Sample description for Project 3, modern amenities and prime location.",
+    "PropertyType": "Farm House",
+    "Status": "Under Construction",
+    "DateListed": "2025-09-03",
+    "DateUpdated": "2025-09-04",
+    "ActualPrice": "₹80 Lakh",
+    "ShowcasePrice": "₹53 Lakh",
+    "PricePerSqFt": 5600,
+    "MaintenanceCharges": 1800,
+    "BookingAmount": 65000,
+    "OwnershipType": "Leasehold",
+    "Furnishing": "Furnished",
+    "Facing": "South",
+    "PropertyAge": "3 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP003",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 4,
+      "Bathrooms": 1,
+      "AreaSqFt": 1600,
+      "Floor": "3th",
+      "TotalFloors": 13,
+      "YearBuilt": 2023,
+      "Amenities": {
+        "Parks": true,
+        "Garden": false,
+        "SwimmingPool": true,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": false,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": false,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": true,
+        "FireSafety": true,
+        "SmartHome": true,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project3-thumb.jpg",
+      "Images": [
+        "project3-1.jpg",
+        "project3-2.jpg"
+      ],
+      "FloorPlan": "project3-floorplan.pdf",
+      "VideoTour": "https://example.com/project3-video",
+      "VirtualWalkthrough": "https://example.com/project3-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-003",
+      "AgentName": "Agent 3",
+      "Contact": "+91-9000000003",
+      "Email": "agent3@realestate.in",
+      "Agency": "Agency 3",
+      "AgencyLogo": "agency3-logo.png",
+      "Rating": 4.4,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer3",
+          "Comment": "Feedback for project 3",
+          "Rating": 4
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 3 in City3 | Premium Property",
+      "MetaDescription": "Explore Project 3, top real estate option in City3, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 650,
+      "Inquiries": 16,
+      "Tags": [
+        "Tag3",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": false,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202504XYZ",
+    "PropertyName": "Project 4",
+    "Location": {
+      "Address": "104 Main Street, City4, Rajasthan, India",
+      "City": "City4",
+      "State": "Rajasthan",
+      "PostalCode": "30004",
+      "Latitude": 26.04,
+      "Longitude": 75.04,
+      "NearbyLandmarks": [
+        "Landmark4A",
+        "Landmark4B"
+      ]
+    },
+    "Description": "Sample description for Project 4, modern amenities and prime location.",
+    "PropertyType": "Plot",
+    "Status": "Available",
+    "DateListed": "2025-09-04",
+    "DateUpdated": "2025-09-05",
+    "ActualPrice": "₹90 Lakh",
+    "ShowcasePrice": "₹54 Lakh",
+    "PricePerSqFt": 5800,
+    "MaintenanceCharges": 1900,
+    "BookingAmount": 70000,
+    "OwnershipType": "Freehold",
+    "Furnishing": "Unfurnished",
+    "Facing": "East",
+    "PropertyAge": "4 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP004",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 5,
+      "Bathrooms": 2,
+      "AreaSqFt": 1800,
+      "Floor": "4th",
+      "TotalFloors": 14,
+      "YearBuilt": 2024,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": false,
+        "ClubHouse": true,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": false,
+        "FireSafety": true,
+        "SmartHome": false,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project4-thumb.jpg",
+      "Images": [
+        "project4-1.jpg",
+        "project4-2.jpg"
+      ],
+      "FloorPlan": "project4-floorplan.pdf",
+      "VideoTour": "https://example.com/project4-video",
+      "VirtualWalkthrough": "https://example.com/project4-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-004",
+      "AgentName": "Agent 4",
+      "Contact": "+91-9000000004",
+      "Email": "agent4@realestate.in",
+      "Agency": "Agency 4",
+      "AgencyLogo": "agency4-logo.png",
+      "Rating": 4.7,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer4",
+          "Comment": "Feedback for project 4",
+          "Rating": 5
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 4 in City4 | Premium Property",
+      "MetaDescription": "Explore Project 4, top real estate option in City4, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 700,
+      "Inquiries": 18,
+      "Tags": [
+        "Tag4",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": true,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202505XYZ",
+    "PropertyName": "Project 5",
+    "Location": {
+      "Address": "105 Main Street, City5, Rajasthan, India",
+      "City": "City5",
+      "State": "Rajasthan",
+      "PostalCode": "30005",
+      "Latitude": 26.05,
+      "Longitude": 75.05,
+      "NearbyLandmarks": [
+        "Landmark5A",
+        "Landmark5B"
+      ]
+    },
+    "Description": "Sample description for Project 5, modern amenities and prime location.",
+    "PropertyType": "Shop",
+    "Status": "Under Construction",
+    "DateListed": "2025-09-05",
+    "DateUpdated": "2025-09-06",
+    "ActualPrice": 10000000,
+    "ShowcasePrice": "₹55 Lakh",
+    "PricePerSqFt": 6000,
+    "MaintenanceCharges": 2000,
+    "BookingAmount": 75000,
+    "OwnershipType": "Leasehold",
+    "Furnishing": "Unfurnished",
+    "Facing": "West",
+    "PropertyAge": "5 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP005",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 1,
+      "Bathrooms": 3,
+      "AreaSqFt": 2000,
+      "Floor": "5th",
+      "TotalFloors": 15,
+      "YearBuilt": 2020,
+      "Amenities": {
+        "Parks": true,
+        "Garden": false,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": false,
+        "ShoppingCenter": true,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": false,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": false,
+        "FireSafety": true,
+        "SmartHome": true,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project5-thumb.jpg",
+      "Images": [
+        "project5-1.jpg",
+        "project5-2.jpg"
+      ],
+      "FloorPlan": "project5-floorplan.pdf",
+      "VideoTour": "https://example.com/project5-video",
+      "VirtualWalkthrough": "https://example.com/project5-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-005",
+      "AgentName": "Agent 5",
+      "Contact": "+91-9000000005",
+      "Email": "agent5@realestate.in",
+      "Agency": "Agency 5",
+      "AgencyLogo": "agency5-logo.png",
+      "Rating": 3.5,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer5",
+          "Comment": "Feedback for project 5",
+          "Rating": 1
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 5 in City5 | Premium Property",
+      "MetaDescription": "Explore Project 5, top real estate option in City5, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 750,
+      "Inquiries": 20,
+      "Tags": [
+        "Tag5",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": false,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202506XYZ",
+    "PropertyName": "Project 6",
+    "Location": {
+      "Address": "106 Main Street, City6, Rajasthan, India",
+      "City": "City6",
+      "State": "Rajasthan",
+      "PostalCode": "30006",
+      "Latitude": 26.06,
+      "Longitude": 75.06,
+      "NearbyLandmarks": [
+        "Landmark6A",
+        "Landmark6B"
+      ]
+    },
+    "Description": "Sample description for Project 6, modern amenities and prime location.",
+    "PropertyType": "Office Space",
+    "Status": "Available",
+    "DateListed": "2025-09-06",
+    "DateUpdated": "2025-09-07",
+    "ActualPrice": 11000000,
+    "ShowcasePrice": "₹56 Lakh",
+    "PricePerSqFt": 6200,
+    "MaintenanceCharges": 2100,
+    "BookingAmount": 80000,
+    "OwnershipType": "Freehold",
+    "Furnishing": "Furnished",
+    "Facing": "North",
+    "PropertyAge": "6 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP006",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 2,
+      "Bathrooms": 1,
+      "AreaSqFt": 2200,
+      "Floor": "6th",
+      "TotalFloors": 16,
+      "YearBuilt": 2021,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": true,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": false,
+        "ClubHouse": false,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": true,
+        "FireSafety": true,
+        "SmartHome": false,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project6-thumb.jpg",
+      "Images": [
+        "project6-1.jpg",
+        "project6-2.jpg"
+      ],
+      "FloorPlan": "project6-floorplan.pdf",
+      "VideoTour": "https://example.com/project6-video",
+      "VirtualWalkthrough": "https://example.com/project6-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-006",
+      "AgentName": "Agent 6",
+      "Contact": "+91-9000000006",
+      "Email": "agent6@realestate.in",
+      "Agency": "Agency 6",
+      "AgencyLogo": "agency6-logo.png",
+      "Rating": 3.8,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer6",
+          "Comment": "Feedback for project 6",
+          "Rating": 2
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 6 in City6 | Premium Property",
+      "MetaDescription": "Explore Project 6, top real estate option in City6, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 800,
+      "Inquiries": 22,
+      "Tags": [
+        "Tag6",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": true,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202507XYZ",
+    "PropertyName": "Project 7",
+    "Location": {
+      "Address": "107 Main Street, City7, Rajasthan, India",
+      "City": "City7",
+      "State": "Rajasthan",
+      "PostalCode": "30007",
+      "Latitude": 26.07,
+      "Longitude": 75.07,
+      "NearbyLandmarks": [
+        "Landmark7A",
+        "Landmark7B"
+      ]
+    },
+    "Description": "Sample description for Project 7, modern amenities and prime location.",
+    "PropertyType": "Commercial Space",
+    "Status": "Under Construction",
+    "DateListed": "2025-09-07",
+    "DateUpdated": "2025-09-08",
+    "ActualPrice": 12000000,
+    "ShowcasePrice": "₹57 Lakh",
+    "PricePerSqFt": 6400,
+    "MaintenanceCharges": 2200,
+    "BookingAmount": 85000,
+    "OwnershipType": "Leasehold",
+    "Furnishing": "Unfurnished",
+    "Facing": "South",
+    "PropertyAge": "7 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP007",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 3,
+      "Bathrooms": 2,
+      "AreaSqFt": 2400,
+      "Floor": "7th",
+      "TotalFloors": 17,
+      "YearBuilt": 2022,
+      "Amenities": {
+        "Parks": true,
+        "Garden": false,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": false,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": false,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": false,
+        "FireSafety": true,
+        "SmartHome": true,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project7-thumb.jpg",
+      "Images": [
+        "project7-1.jpg",
+        "project7-2.jpg"
+      ],
+      "FloorPlan": "project7-floorplan.pdf",
+      "VideoTour": "https://example.com/project7-video",
+      "VirtualWalkthrough": "https://example.com/project7-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-007",
+      "AgentName": "Agent 7",
+      "Contact": "+91-9000000007",
+      "Email": "agent7@realestate.in",
+      "Agency": "Agency 7",
+      "AgencyLogo": "agency7-logo.png",
+      "Rating": 4.1,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer7",
+          "Comment": "Feedback for project 7",
+          "Rating": 3
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 7 in City7 | Premium Property",
+      "MetaDescription": "Explore Project 7, top real estate option in City7, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 850,
+      "Inquiries": 24,
+      "Tags": [
+        "Tag7",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": false,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202508XYZ",
+    "PropertyName": "Project 8",
+    "Location": {
+      "Address": "108 Main Street, City8, Rajasthan, India",
+      "City": "City8",
+      "State": "Rajasthan",
+      "PostalCode": "30008",
+      "Latitude": 26.08,
+      "Longitude": 75.08,
+      "NearbyLandmarks": [
+        "Landmark8A",
+        "Landmark8B"
+      ]
+    },
+    "Description": "Sample description for Project 8, modern amenities and prime location.",
+    "PropertyType": "Agricultural Land",
+    "Status": "Available",
+    "DateListed": "2025-09-08",
+    "DateUpdated": "2025-09-09",
+    "ActualPrice": 13000000,
+    "ShowcasePrice": "₹58 Lakh",
+    "PricePerSqFt": 6600,
+    "MaintenanceCharges": 2300,
+    "BookingAmount": 90000,
+    "OwnershipType": "Freehold",
+    "Furnishing": "Unfurnished",
+    "Facing": "East",
+    "PropertyAge": "8 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP008",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 4,
+      "Bathrooms": 3,
+      "AreaSqFt": 2600,
+      "Floor": "8th",
+      "TotalFloors": 18,
+      "YearBuilt": 2023,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": false,
+        "ClubHouse": true,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": false,
+        "FireSafety": true,
+        "SmartHome": false,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project8-thumb.jpg",
+      "Images": [
+        "project8-1.jpg",
+        "project8-2.jpg"
+      ],
+      "FloorPlan": "project8-floorplan.pdf",
+      "VideoTour": "https://example.com/project8-video",
+      "VirtualWalkthrough": "https://example.com/project8-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-008",
+      "AgentName": "Agent 8",
+      "Contact": "+91-9000000008",
+      "Email": "agent8@realestate.in",
+      "Agency": "Agency 8",
+      "AgencyLogo": "agency8-logo.png",
+      "Rating": 4.4,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer8",
+          "Comment": "Feedback for project 8",
+          "Rating": 4
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 8 in City8 | Premium Property",
+      "MetaDescription": "Explore Project 8, top real estate option in City8, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 900,
+      "Inquiries": 26,
+      "Tags": [
+        "Tag8",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": true,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202509XYZ",
+    "PropertyName": "Project 9",
+    "Location": {
+      "Address": "109 Main Street, City9, Rajasthan, India",
+      "City": "City9",
+      "State": "Rajasthan",
+      "PostalCode": "30009",
+      "Latitude": 26.09,
+      "Longitude": 75.09,
+      "NearbyLandmarks": [
+        "Landmark9A",
+        "Landmark9B"
+      ]
+    },
+    "Description": "Sample description for Project 9, modern amenities and prime location.",
+    "PropertyType": "Villa",
+    "Status": "Under Construction",
+    "DateListed": "2025-09-09",
+    "DateUpdated": "2025-09-10",
+    "ActualPrice": 14000000,
+    "ShowcasePrice": "₹59 Lakh",
+    "PricePerSqFt": 6800,
+    "MaintenanceCharges": 2400,
+    "BookingAmount": 95000,
+    "OwnershipType": "Leasehold",
+    "Furnishing": "Furnished",
+    "Facing": "West",
+    "PropertyAge": "9 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP009",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 5,
+      "Bathrooms": 1,
+      "AreaSqFt": 2800,
+      "Floor": "9th",
+      "TotalFloors": 19,
+      "YearBuilt": 2024,
+      "Amenities": {
+        "Parks": true,
+        "Garden": false,
+        "SwimmingPool": true,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": false,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": false,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": true,
+        "FireSafety": true,
+        "SmartHome": true,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project9-thumb.jpg",
+      "Images": [
+        "project9-1.jpg",
+        "project9-2.jpg"
+      ],
+      "FloorPlan": "project9-floorplan.pdf",
+      "VideoTour": "https://example.com/project9-video",
+      "VirtualWalkthrough": "https://example.com/project9-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-009",
+      "AgentName": "Agent 9",
+      "Contact": "+91-9000000009",
+      "Email": "agent9@realestate.in",
+      "Agency": "Agency 9",
+      "AgencyLogo": "agency9-logo.png",
+      "Rating": 4.7,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer9",
+          "Comment": "Feedback for project 9",
+          "Rating": 5
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 9 in City9 | Premium Property",
+      "MetaDescription": "Explore Project 9, top real estate option in City9, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 950,
+      "Inquiries": 28,
+      "Tags": [
+        "Tag9",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": false,
+        "WhatsApp": true
+      }
+    }
+  },
+  {
+    "PropertyID": "PROP5202510XYZ",
+    "PropertyName": "Project 10",
+    "Location": {
+      "Address": "110 Main Street, City10, Rajasthan, India",
+      "City": "City10",
+      "State": "Rajasthan",
+      "PostalCode": "30010",
+      "Latitude": 26.1,
+      "Longitude": 75.1,
+      "NearbyLandmarks": [
+        "Landmark10A",
+        "Landmark10B"
+      ]
+    },
+    "Description": "Sample description for Project 10, modern amenities and prime location.",
+    "PropertyType": "Apartment",
+    "Status": "Available",
+    "DateListed": "2025-09-10",
+    "DateUpdated": "2025-09-11",
+    "ActualPrice": "₹1 Crore 50 Lakh",
+    "ShowcasePrice": "₹60 Lakh",
+    "PricePerSqFt": 7000,
+    "MaintenanceCharges": 2500,
+    "BookingAmount": 100000,
+    "OwnershipType": "Freehold",
+    "Furnishing": "Unfurnished",
+    "Facing": "North",
+    "PropertyAge": "10 years",
+    "LegalClearances": {
+      "RERA_ID": "RAJ2025PROP010",
+      "ApprovedBy": [
+        "RERA",
+        "Municipal Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 1,
+      "Bathrooms": 2,
+      "AreaSqFt": 3000,
+      "Floor": "10th",
+      "TotalFloors": 20,
+      "YearBuilt": 2020,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": false,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": false,
+        "ClubHouse": false,
+        "ShoppingCenter": true,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": false,
+        "FireSafety": true,
+        "SmartHome": false,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "project10-thumb.jpg",
+      "Images": [
+        "project10-1.jpg",
+        "project10-2.jpg"
+      ],
+      "FloorPlan": "project10-floorplan.pdf",
+      "VideoTour": "https://example.com/project10-video",
+      "VirtualWalkthrough": "https://example.com/project10-360"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "AGT-2025-010",
+      "AgentName": "Agent 10",
+      "Contact": "+91-9000000010",
+      "Email": "agent10@realestate.in",
+      "Agency": "Agency 10",
+      "AgencyLogo": "agency10-logo.png",
+      "Rating": 3.5,
+      "Reviews": [
+        {
+          "Reviewer": "Reviewer10",
+          "Comment": "Feedback for project 10",
+          "Rating": 1
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Project 10 in City10 | Premium Property",
+      "MetaDescription": "Explore Project 10, top real estate option in City10, Rajasthan."
+    },
+    "Engagement": {
+      "Views": 1000,
+      "Inquiries": 30,
+      "Tags": [
+        "Tag10",
+        "RERA Approved"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": true,
+        "WhatsApp": true
+      }
+    }
+  }
+]

@@ -1,0 +1,275 @@
+[
+  {
+    "PropertyID": "RJP2024V001",
+    "PropertyName": "Aarna Grande - Premium 2 BHK Villas",
+    "Location": {
+      "Address": "Sector 5, Ajmer Road, Jaipur, Rajasthan 302019",
+      "City": "Jaipur",
+      "State": "Rajasthan",
+      "PostalCode": "302019",
+      "Latitude": 26.9124,
+      "Longitude": 75.7873,
+      "NearbyLandmarks": [
+        "World Trade Park (4.2 km)",
+        "Jawahar Circle (2.8 km)",
+        "Fortis Hospital (3.5 km)"
+      ]
+    },
+    "Description": "Aarna Grande presents an exclusive gated community of modern 2 BHK villas, blending contemporary design with Rajputana elegance. Located on the rapidly developing Ajmer Road corridor, these homes offer spacious living areas, private gardens, and premium specifications from leading brands. Perfect for families seeking a serene yet well-connected lifestyle.",
+    "PropertyType": "Villa",
+    "Status": "Under Construction",
+    "DateListed": "2024-06-15",
+    "DateUpdated": "2024-09-01",
+    "ActualPrice": "₹72.50 Lakhs",
+    "ShowcasePrice": "₹62.75 Lakhs",
+    "PricePerSqFt": 5200,
+    "MinBookingAmount": 100000,
+    "Furnishing": "Semi-Furnished",
+    "Facing": "East",
+    "PropertyAge": "New Launch",
+    "LegalClearances": {
+      "RERA_ID": "RJ/RERA/PRJ/2024/012345",
+      "ApprovedBy": [
+        "RERA",
+        "Jaipur Development Authority (JDA)",
+        "Municipal Corporation of Jaipur"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 2,
+      "Bathrooms": 2,
+      "AreaSqFt": 1250,
+      "Floor": "Ground Floor",
+      "TotalFloors": 2,
+      "YearBuilt": 2025,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": true,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": true,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": false,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": true,
+        "FireSafety": true,
+        "SmartHome": false,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "https://picsum.photos/seed/villa1/3000/2000",
+      "Images": [
+        "https://picsum.photos/seed/villa1a/800/600",
+        "https://picsum.photos/seed/villa1b/800/600",
+        "https://picsum.photos/seed/villa1c/800/600"
+      ],
+      "FloorPlan": "https://via.placeholder.com/800x1000/FFFFFF/000000?text=Aarna+Grande+Floor+Plan"
+    }
+  },
+  {
+    "PropertyID": "RJP2024A002",
+    "PropertyName": "Skyrise Residences - High-Rise 3 BHK Apartments",
+    "Location": {
+      "Address": "Tonk Road, Near Galtaji, Jaipur, Rajasthan 302022",
+      "City": "Jaipur",
+      "State": "Rajasthan",
+      "PostalCode": "302022",
+      "Latitude": 26.8423,
+      "Longitude": 75.8247,
+      "NearbyLandmarks": [
+        "Galtaji Temple (1.5 km)",
+        "Jagatpura Flyover (3 km)",
+        "Mahalaxmi Mercure (2 km)"
+      ]
+    },
+    "Description": "Experience panoramic views of the Aravalli Hills from Skyrise Residences. These meticulously designed 3 BHK apartments feature premium Italian marble flooring, modular kitchens, and spacious balconies. The project boasts a state-of-the-art clubhouse, a 50-meter lap pool, and 24/7 power backup. Its strategic location on Tonk Road ensures seamless connectivity to the city's IT hubs and educational institutions.",
+    "PropertyType": "Apartment",
+    "Status": "Available",
+    "DateListed": "2024-05-20",
+    "DateUpdated": "2024-08-28",
+    "ActualPrice": "₹1.12 Crore",
+    "ShowcasePrice": "₹98.50 Lakhs",
+    "PricePerSqFt": 6800,
+    "MinBookingAmount": 200000,
+    "Furnishing": "Fully-Furnished",
+    "Facing": "South-West",
+    "PropertyAge": "1 year",
+    "LegalClearances": {
+      "RERA_ID": "RJ/RERA/PRJ/2023/054321",
+      "ApprovedBy": [
+        "RERA",
+        "Jaipur Development Authority (JDA)"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 3,
+      "Bathrooms": 3,
+      "AreaSqFt": 1650,
+      "Floor": "12th",
+      "TotalFloors": 18,
+      "YearBuilt": 2023,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": true,
+        "Gym": true,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": true,
+        "ShoppingCenter": false,
+        "PublicTransport": true,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": true,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": true,
+        "FireSafety": true,
+        "SmartHome": true,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp",
+          "Elevator"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "https://picsum.photos/seed/apartment2/300/200",
+      "Images": [
+        "https://picsum.photos/seed/apartment2a/800/600",
+        "https://picsum.photos/seed/apartment2b/800/600",
+        "https://picsum.photos/seed/apartment2c/800/600"
+      ],
+      "FloorPlan": "https://via.placeholder.com/800x1000/FFFFFF/000000?text=Skyrise+Residences+Floor+Plan"
+    }
+  },
+  {
+    "PropertyID": "RJP2024F003",
+    "PropertyName": "Prakriti Farms - Serene Weekend Homes",
+    "Location": {
+      "Address": "Delhi-Jaipur Highway, Near Neemrana, Alwar, Rajasthan 301705",
+      "City": "Alwar",
+      "State": "Rajasthan",
+      "PostalCode": "301705",
+      "Latitude": 27.9861,
+      "Longitude": 76.3826,
+      "NearbyLandmarks": [
+        "Neemrana Fort Palace (12 km)",
+        "Neemrana Industrial Area (8 km)",
+        "Keshav Bai Ji Temple (5 km)"
+      ]
+    },
+    "Description": "Escape the city bustle with your own weekend retreat at Prakriti Farms. Spread over 1-acre plots, these farmhouses offer a perfect blend of rural charm and modern comfort. Each plot comes with a pre-built cottage, a dedicated area for organic farming, and a private swimming pool. Ideal for those looking for a peaceful investment or a holiday home close to Delhi NCR.",
+    "PropertyType": "Farm House",
+    "Status": "Under Construction",
+    "DateListed": "2024-07-10",
+    "DateUpdated": "2024-09-05",
+    "ActualPrice": "₹85 Lakhs",
+    "ShowcasePrice": "₹78 Lakhs",
+    "PricePerSqFt": 1850,
+    "MaintenanceCharges": 1500,
+    "BookingAmount": 150000,
+    "OwnershipType": "Leasehold",
+    "Furnishing": "Furnished",
+    "Facing": "North-East",
+    "PropertyAge": "New Launch",
+    "LegalClearances": {
+      "RERA_ID": "RJ/RERA/PRJ/2024/078945",
+      "ApprovedBy": [
+        "RERA",
+        "Alwar Development Authority"
+      ]
+    },
+    "Features": {
+      "Bedrooms": 2,
+      "Bathrooms": 2,
+      "AreaSqFt": 4600,
+      "Floor": "Ground Floor",
+      "TotalFloors": 1,
+      "YearBuilt": 2025,
+      "Amenities": {
+        "Parks": true,
+        "Garden": true,
+        "SwimmingPool": true,
+        "Gym": false,
+        "Security": true,
+        "Parking": true,
+        "PlayArea": true,
+        "ClubHouse": false,
+        "ShoppingCenter": false,
+        "PublicTransport": false,
+        "CCRoads": true,
+        "PowerBackup": true,
+        "Lift": false,
+        "WaterSupply": true,
+        "WideSewage": true,
+        "RainWaterHarvesting": true,
+        "FireSafety": true,
+        "SmartHome": false,
+        "PetFriendly": true,
+        "Accessibility": [
+          "Ramp"
+        ]
+      }
+    },
+    "Media": {
+      "Thumbnail": "https://picsum.photos/seed/farm3/300/200",
+      "Images": [
+        "https://picsum.photos/seed/farm3a/800/600",
+        "https://picsum.photos/seed/farm3b/800/600",
+        "https://picsum.photos/seed/farm3c/800/600"
+      ],
+      "FloorPlan": "https://via.placeholder.com/800x1000/FFFFFF/000000?text=Prakriti+Farms+Layout",
+      "VideoTour": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "VirtualWalkthrough": "https://www.kuula.co/share/collection/9H7KZ"
+    },
+    "AgentListed": true,
+    "Agent": {
+      "AgentID": "RJA4455667",
+      "AgentName": "Ramesh Kumar",
+      "Contact": "+91-9414012345",
+      "Email": "ramesh.kumar@countrysideestates.com",
+      "Agency": "Countryside Estates",
+      "AgencyLogo": "https://via.placeholder.com/150x80/8E44AD/FFFFFF?text=Countryside",
+      "Rating": 4.3,
+      "Reviews": [
+        {
+          "Reviewer": "Sunil & Meena Gupta",
+          "Comment": "Ramesh helped us find our perfect weekend home. He understands the farmhouse market very well. Trustworthy and reliable.",
+          "Rating": 4
+        }
+      ]
+    },
+    "SEO": {
+      "MetaTitle": "Farmhouses in Neemrana | Prakriti Farms @ ₹78 Lakhs | Weekend Homes",
+      "MetaDescription": "Discover serene 1-acre farmhouses with cottages near Neemrana. Perfect weekend getaway from Delhi. Starting at ₹78 Lakhs. Organic farming plots available."
+    },
+    "Engagement": {
+      "Views": 876,
+      "Inquiries": 65,
+      "Tags": [
+        "Weekend Homes",
+        "Near Delhi",
+        "Organic Farming",
+        "Private Pool"
+      ],
+      "SocialShare": {
+        "Facebook": true,
+        "Twitter": false,
+        "WhatsApp": true
+      }
+    }
+  }
+]

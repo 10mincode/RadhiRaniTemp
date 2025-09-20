@@ -1,0 +1,56 @@
+.logo {
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #0a2e5c;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #e63946;
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.8rem;
+  color: #0a2e5c;
+  cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: 80px;
+    left: 2.5%;
+    width: 95%;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  nav.open {
+    transform: translateY(-200%);
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+}
