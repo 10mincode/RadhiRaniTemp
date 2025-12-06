@@ -8,6 +8,6 @@ import { Router } from '@angular/router';
   standalone: false,
 })
 export class AppComponent {
-  static apiLink: string = 'http://192.168.1.39:3000';
+  static apiLink: string = 'https://radhiranitempserver.onrender.com/';
   title = 'radharani-homes';
 }
