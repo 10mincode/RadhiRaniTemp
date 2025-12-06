@@ -1,0 +1,14 @@
+<div class="d-flex flex-wrap" style="width: -webkit-fill-available;">
+  <div class="metrics-container col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let metric of metrics;let i = index">
+    <div class="metrics-card ">
+      <div class="data-content p-2 d-flex flex-column justify-content-between">
+        <h3 class="data-title" style="color: #6c757d;">{{metric.title}}</h3>
+        <h2 class="data-value">{{metric.value}}</h2>
+      </div>
+      <div class="icon-content">
+        <i [class]="metric.icon" [style.color]="colors[i % colors.length]"
+          [style.backgroundColor]="transparentColors[i % colors.length]" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<style>
+  .status-pending {
+    color: red !important;
+  }
+
+  .status-active {
+    color: orange !important;
+  }
+
+  .status-resolved {
+    color: green !important;
+  }
+</style>
+<h2 mat-dialog-title><i class="fas fa-circle" [title]="contact.status" [ngClass]="getColorbyStatus()"></i>
+  {{contact.name}}
+</h2>
+
+<mat-dialog-content class="mat-typography">
+  <p [ngClass]="getColorbyStatus()"><strong>Status:-</strong> {{contact.status}} </p>
+  <hr class="my-2">
+  <p (click)="openMail(contact)" [style.cursor]="'pointer'"><strong>Email:-</strong> {{contact.email}} </p>
+  <p><strong>Mobile:-</strong> {{contact.mobile}}</p>
+  <hr class="my-2">
+  <h3>Message</h3>
+  <p>{{contact.message}}</p>
+  <hr class="my-2">
+  <p><strong>Date:-</strong> {{contact.createdAt | date:'d MMM YY, h:mm a'}}</p>
+  <p><strong>From:-</strong> {{contact.from}}</p>
+  <p *ngIf="contact.from=='Property Page'"><strong>PROP Id:-</strong> {{contact.propertyId}}</p>
+  <p><strong>Subject:-</strong> {{contact.subject}}</p>
+  <!-- <mat-form-field appearance="fill" class="w-100 my-2">
+    <mat-label>Update Status</mat-label>
+    <mat-select [value]="contact.status" (selectionChange)="changeStatus($event.value)">
+      <mat-option *ngIf="contact.status === 'Pending'" value="Active">Active</mat-option>
+      <mat-option *ngIf="contact.status === 'Active'" value="Resolved">Resolved</mat-option>
+      <mat-option *ngIf="contact.status === 'Resolved'" value="Active">Reopen as Active</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  <div class="status-options my-2">
+    <button mat-stroked-button style="font-size: 125%; font-weight: bolder;" [ngClass]="getColorbyStatus('Active')"
+      *ngIf="contact.status === 'Pending'" (click)="proposedStatus = 'Active'">
+      Mark as Active
+    </button>
+    <button mat-stroked-button style="font-size: 125%; font-weight: bolder;" [ngClass]="getColorbyStatus('Resolved')"
+      *ngIf="contact.status === 'Active'" (click)="proposedStatus = 'Resolved'">
+      Mark as Resolved
+    </button>
+    <button mat-stroked-button style="font-size: 125%; font-weight: bolder;" [ngClass]="getColorbyStatus('Active')"
+      *ngIf="contact.status === 'Resolved'" (click)="proposedStatus = 'Active'">
+      Reopen as Active
+    </button>
+  </div>
+  <p>
+    <strong>Current Status:
+      <span [ngClass]="getColorbyStatus()">{{ contact.status }}</span></strong>
+  </p>
+  <p *ngIf="proposedStatus !== contact.status">
+    <strong>New Status:
+      <span [ngClass]="getColorbyStatus(proposedStatus)">{{ proposedStatus }}</span></strong>
+  </p>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="changeStatus()" cdkFocusInitial>OK</button>
+</mat-dialog-actions>

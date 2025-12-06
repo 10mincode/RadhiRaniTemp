@@ -1,0 +1,310 @@
+<div class="upload-container">
+  <h2>Upload Property</h2>
+  <form [formGroup]="propertyForm" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="propertyId">Property ID</label>
+      <input type="text" id="propertyId" formControlName="propertyId" class="form-control" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="propertyName">Property Name</label>
+      <input type="text" id="propertyName" formControlName="propertyName" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" rows="3" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="furnishing">Furnishing</label>
+      <select id="furnishing" formControlName="furnishing" class="form-control">
+        <option value="" disabled>-- SELECT --</option>
+        <option>Furnished</option>
+        <option>Semi-Furnished</option>
+        <option>Unfurnished</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="facing">Facing</label>
+      <select id="facing" formControlName="facing" class="form-control">
+        <option value="" disabled>-- SELECT --</option>
+        <option>North</option>
+        <option>South</option>
+        <option>East</option>
+        <option>West</option>
+        <option>North-East</option>
+        <option>North-West</option>
+        <option>South-East</option>
+        <option>South-West</option>
+      </select>
+    </div>
+
+    <div formGroupName="location">
+      <h3>Location</h3>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" formControlName="address" class="form-control">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" formControlName="city" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" id="state" formControlName="state" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="postalCode">Postal Code</label>
+          <input type="text" id="postalCode" formControlName="postalCode" maxlength="6" class="form-control">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="latitude">Latitude</label>
+          <input type="number" id="latitude" formControlName="latitude" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="longitude">Longitude</label>
+          <input type="number" id="longitude" formControlName="longitude" class="form-control">
+        </div>
+      </div>
+      <h3>Nearby Landmarks</h3>
+      <div class="form-row">
+        <div class="landmark-list">
+          <div *ngFor="let landmark of nearbyLandmarks.controls; let i = index" class="landmark-item">
+            <span>{{ landmark.value }}</span>
+            <button type="button" (click)="removeLandmark(i)">Remove</button>
+          </div>
+        </div>
+        <div class="form-row landmark">
+          <div class="form-group land-name">
+            <label for="landmarkn">Landmark</label>
+            <input type="text" id="landmarkn" class="form-control">
+          </div>
+          <div class="form-group land-dist">
+            <label for="landmarkd">Distance</label>
+            <input type="number" id="landmarkd" class="form-control">
+          </div>
+          <button type="button" class="add-landmark" (click)="addnearByLandmark()">Add</button>
+        </div>
+      </div>
+    </div>
+    <div formGroupName="legalClearances">
+      <h3>Legal Clearance</h3>
+      <div class="form-group">
+        <label for="reraId">RERA ID</label>
+        <input type="text" id="reraId" formControlName="reraId" class=" form-control">
+      </div>
+      <div class="form-group">
+        <label for="approvedBy">Approved By</label>
+        <input type="text" id="approvedBy" placeholder="Seprate by ," class="form-control">
+      </div>
+
+    </div>
+    <h3>Details</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="propertyType">Property Type</label>
+        <select id="propertyType" formControlName="propertyType" class="form-control">
+          <option value="" disabled>-- SELECT --</option>
+          <option>Villa</option>
+          <option>Apartment</option>
+          <option>Farm House</option>
+          <option>Land</option>
+          <option>Commercial Space</option>
+          <option>Shop</option>
+          <option>Office Space</option>
+          <option>Plots</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" formControlName="status" class="form-control">
+          <option value="" disabled>-- SELECT --</option>
+          <option>Ready to Move</option>
+          <option>Under Construction</option>
+          <option>New Launch</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Pricing</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="actualPrice">Actual Price</label>
+        <input type="number" id="actualPrice" formControlName="actualPrice" class="form-control no-spinner">
+      </div>
+      <div class="form-group">
+        <label for="showcasePrice">Showcase Price</label>
+        <input type="number" id="showcasePrice" formControlName="showcasePrice" class="form-control no-spinner">
+      </div>
+      <div class="form-group">
+        <label for="pricePerSqFt">Price per Sq.Ft</label>
+        <input type="number" id="pricePerSqFt" formControlName="pricePerSqFt" class="form-control no-spinner">
+      </div>
+    </div>
+
+    <div formGroupName="features">
+      <h3>Features</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Bedrooms</label>
+          <input type="number" formControlName="bedrooms" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Bathrooms</label>
+          <input type="number" formControlName="bathrooms" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Area (Sq.Ft)</label>
+          <input type="number" formControlName="areaSqFt" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Floor</label>
+          <input type="number" formControlName="floor" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Total Floors</label>
+          <input type="number" formControlName="totalFloors" class="form-control" maxlength="3" minlength="1">
+        </div>
+        <div class="form-group">
+          <label>Year Built</label>
+          <input type="number" formControlName="yearBuilt" class="form-control" maxlength="4" minlength="4">
+        </div>
+      </div>
+      <h3>Amenities</h3>
+      <div formGroupName="amenities">
+        <div class="form-column grid">
+          <div class="form-group">
+            <input type="checkbox" formControlName="parks" id="parks">
+            <label for="parks">Parks</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="garden" id="garden">
+            <label for="garden">Garden</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="swimmingPool" id="swimmingPool">
+            <label for="swimmingPool">Swimming Pool</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="gym" id="gym">
+            <label for="gym">Gym</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="security" id="security">
+            <label for="security">Security</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="parking" id="parking">
+            <label for="parking">Parking</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="playArea" id="playArea">
+            <label for="playArea">Play Area</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="clubHouse" id="clubHouse">
+            <label for="clubHouse">Club House</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="shoppingCenter" id="shoppingCenter">
+            <label for="shoppingCenter">Shopping Center</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="publicTransport" id="publicTransport">
+            <label for="publicTransport">Public Transport</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="cCRoads" id="cCRoads">
+            <label for="cCRoads">C.C. Roads</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="powerBackup" id="powerBackup">
+            <label for="powerBackup">Power Backup</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="waterSupply" id="waterSupply">
+            <label for="waterSupply">Water Supply</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="wideSewage" id="wideSewage">
+            <label for="wideSewage">Wide Sewage</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="rainWaterHarvesting" id="rainWaterHarvesting">
+            <label for="rainWaterHarvesting">Rain Water Harvesting</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="fireSafety" id="fireSafety">
+            <label for="fireSafety">Fire Safety</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="smartHome" id="smartHome">
+            <label for="smartHome">Smart Home</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="petFriendly" id="petFriendly">
+            <label for="petFriendly">Pet Friendly</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" formControlName="MovieHall" id="MovieHall">
+            <label for="MovieHall">Movie Hall</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <h3>Accesibilities</h3>
+        <div class="form-column grid">
+          <div class="form-group">
+            <input type="checkbox" id="ramp" (change)="onAccesibilityChange($event)">
+            <label for="ramp">Ramp</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" id="stairs" (change)="onAccesibilityChange($event)">
+            <label for="stairs">Stairs</label>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" id="lift" (change)="onAccesibilityChange($event)">
+            <label for="lift">Lift</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div formGroupName="media">
+      <h3>Media</h3>
+      <div class="form-group">
+        <label for="thumbnail">Thumbnail URL</label>
+        <input type="file" id="thumbnail" aceept="image/*" (change)="onFilesSelect($event)">
+        <div *ngIf="propertyForm.get('media.thumbnail')?.value" class="uploaded-images">
+          <div>
+            <img [src]="thumbnail" alt="Property Thumbnail">
+            <p>{{ propertyForm.get('media.thumbnail')?.value?.name }}</p> <!-- selected file ka naam dikhega -->
+          </div>
+        </div>
+      </div>
+
+      <div formArrayName="images">
+        <label>Upload Images</label>
+        <input type="file" id="images" accept="image/*" multiple (change)="onFilesSelect($event)">
+        <div *ngIf="images.controls.length>0" class="uploaded-images">
+          <div *ngFor="let preview of imagePreviews; let i = index">
+            <img [src]="preview" alt="Property Image {{i + 1}}">
+            <p>{{ images.at(i).value?.name }}</p> <!-- selected file ka naam dikhega -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">Submit</button>
+      <button type="reset" class="btn-secondary">Reset</button>
+    </div>
+  </form>
+</div>

@@ -103,15 +103,16 @@
       <!-- Projects -->
       <div class="project-card" *ngFor="let project of filteredProjects">
         <div class="project-image">
-          <img src="{{project.Media.Thumbnail}}" alt="{{project.PropertyName}}">
-          <div class="project-type">{{project.PropertyType}}</div>
+          <img *ngIf="project?.media?.thumbnail" src="{{project.media.thumbnail}}" alt="{{project.propertyName}}">
+          <div class="project-type">{{project.propertyType}}</div>
         </div>
         <div class="project-info">
-          <h3>{{project.PropertyName}}</h3>
-          <div class="location"><i class="fas fa-map-marker-alt"></i> Malibu, California</div>
-          <div class="price">{{project.ShowcasePrice}} <s>{{project.ActualPrice}}</s></div>
-          <p>{{project.Description}}</p>
-          <a [routerLink]="['/property', project.PropertyID]" class="btn">View More</a>
+          <h3>{{project.propertyName}}</h3>
+          <div class="location"><i class="fas fa-map-marker-alt"></i> {{project.location.city}},
+            {{project.location.state}}</div>
+          <div class="price">₹{{project.actualPrice}} <s>₹{{project.showcasePrice}}</s></div>
+          <p>{{project.description.substring(0,200)}}</p>
+          <a [routerLink]="['/property', project.propertyId]" class="btn">View More</a>
         </div>
       </div>
     </div>
@@ -128,29 +129,33 @@
     <div class="contact-content">
       <div class="contact-form-container">
         <h3>Get In Touch</h3>
-        <form id="contactForm" (submit)="submitContact(contactform)" #contactform="ngForm">
+        <form id="contactForm" (ngSubmit)="submitContact(contactform)" #contactform="ngForm">
           <div class="form-group">
             <input type="text" id="name" name="name" ngModel placeholder="Your Name" required>
           </div>
           <div class="form-group">
-            <input type="email" id="email" name="email" ngModel placeholder="Your Email" required>
+            <input type="email" id="email" name="email" ngModel placeholder="Your Email" email required>
           </div>
           <div class="form-group">
-            <input type="tel" id="phone" name="phone" ngModel placeholder="Your Phone">
+            <input type="tel" id="mobile" name="mobile" maxlength="10" ngModel pattern="^[0-9]{10}$"
+              placeholder="Your Phone">
           </div>
+          <input type="hidden" name="from" [ngModel]="'Home Page'" />
+          <input type="hidden" name="status" [ngModel]="'Pending'" />
           <div class="form-group">
             <select id="subject" name="subject" ngModel required>
-              <option value="">Select Subject</option>
-              <option value="general">General Inquiry</option>
-              <option value="property">Property Information</option>
-              <option value="schedule">Schedule Viewing</option>
-              <option value="valuation">Property Valuation</option>
+              <option value="" disabled selected> --Select Subject--</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Property Information">Property Information</option>
+              <option value="Schedule Viewing">Schedule Viewing</option>
+              <option value="Property Valuation">Property Valuation</option>
             </select>
           </div>
           <div class="form-group">
-            <textarea id="message" name="message" ngModel placeholder="Your Message" rows="5" required></textarea>
+            <textarea id="message" name="message" minlength="10" style="resize: vertical;min-height: max-content;"
+              ngModel placeholder="Your Message (min 10 chars)" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" [disabled]="!contactform.valid" class="btn submit">Send Message</button>
         </form>
       </div>
       <div class="contact-info">

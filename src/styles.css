@@ -19,7 +19,6 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -85,11 +84,11 @@ header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 1rem 1.25rem;
 }
 
 .logo h1 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #0a2e5c;
 }
@@ -104,7 +103,8 @@ nav ul {
 }
 
 nav ul li {
-  margin-left: 30px;
+  text-align: center;
+  padding: 0 0.25rem;
 }
 
 nav ul li a {
@@ -178,7 +178,6 @@ nav ul li a:hover::after {
   text-align: center;
   color: #fff;
   width: 80%;
-  max-width: 800px;
 }
 
 .slide-content h1 {
@@ -684,3 +683,6 @@ footer {
     padding-bottom: 10px;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

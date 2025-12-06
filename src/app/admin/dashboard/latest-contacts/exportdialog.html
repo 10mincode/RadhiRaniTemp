@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Export Contacts</h2>
+<mat-dialog-content class="p-2 text-center">
+  <h3>What you want to Export</h3>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary"
+    [mat-dialog-close]="false"><mat-icon>cloud_download</mat-icon>&nbsp;All</button>
+  <button mat-raised-button color="primary"
+    [mat-dialog-close]="true"><mat-icon>cloud_download</mat-icon>&nbsp;Filtered</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="null">Cancel</button>
+</mat-dialog-actions>

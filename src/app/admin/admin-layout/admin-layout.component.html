@@ -1,0 +1,54 @@
+<header #adminHeader>
+  <div class="container">
+    <div class="logo" (click)="logoClick()">
+      <h1>RR<span>HOMES</span>&nbsp;<span style="color: black;">ADMIN</span></h1>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-btn" (click)="toggleMenu()">
+      <i class="fas fa-bars" *ngIf="!isMenuOpen"></i>
+      <i class="fas fa-times" *ngIf="isMenuOpen"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav [class.open]="!isMenuOpen">
+      <ul>
+        <li><a routerLink="dashboard" routerLinkActive="active" (click)="toggleMenu()">Dashboard</a></li>
+        <li><a routerLink="upload" routerLinkActive="active" (click)="toggleMenu()">Upload</a></li>
+        <li><a routerLink="viewall" routerLinkActive="active" (click)="toggleMenu()">VIEW ALL</a></li>
+        <li><a (click)="logOut()"
+            style="color: red; font-weight: 900;cursor:pointer; border: 2px solid red;border-radius: 0.2rem; padding: 0px 0.3rem;">LOGOUT</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="wrapper" #wrapper>
+  <router-outlet *ngIf="proceed"></router-outlet>
+
+  <div *ngIf="!proceed">
+    <div class="login-form">
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <h2>Admin Login</h2>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" formControlName="username" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input [type]="showPassword ? 'text' : 'password'" formControlName="password" id="password" name="password"
+              class="form-control" required />
+            <span (click)="togglePasswordVisibility()" class="toggle-password">
+              <i [ngClass]="showPassword? 'fas fa-eye-slash':'fas fa-eye'"></i> </span>
+          </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div *ngFor="let errorMessage of formErrors" class="error-message"> > {{ errorMessage }}</div>
+
+      </form>
+    </div>
+  </div>
+</div>

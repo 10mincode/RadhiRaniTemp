@@ -1,0 +1,85 @@
+<main class="table-container">
+  <div class="table-header">
+    <div class="row justify-content-between w-100">
+      <h3>Latest Contacts</h3>
+
+      <div class="table-actions">
+        <mat-date-range-input [rangePicker]="picker" class="d-none">
+          <input matStartDate placeholder="Start date" disabled [(ngModel)]="range.start" (dateChange)="applyFilters()">
+          <input matEndDate placeholder="End date" disabled [(ngModel)]="range.end" (dateChange)="applyFilters()">
+        </mat-date-range-input>
+        <mat-date-range-picker touchUi #picker disabled="false"></mat-date-range-picker>
+        <button class="action-btn disabled" *ngIf="range.start!=null"
+          (click)="range.start=null;range.end=null;applyFilters();">{{range.start | date:'d MMM YY'}}
+          - {{range.end |date:'d MMM YY'}}</button>
+        <button class="action-btn" (click)="picker.open()">
+          <i class="fas fa-calendar"></i>&nbsp; <span>Date Filter</span>
+        </button>
+        <button class="action-btn" (click)="openExportDialog()">
+          <i class="fas fa-download"></i>&nbsp; <span>Export</span>
+        </button>
+      </div>
+    </div>
+    <div class="search">
+      <input type="text" autofill="false" placeholder="Search..." [(ngModel)]="search_term" (input)="applyFilters()">
+      <i class="fas fa-search" (click)="applyFilters()"></i>
+    </div>
+  </div>
+
+
+  <div class="table-scroll">
+    <table class="contacts-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Message</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of showContacts">
+          <td>
+            <i class="fas fa-circle-dot" [title]="contact.status" [ngClass]="{
+      'status-pending': contact.status === 'Pending',
+      'status-active': contact.status === 'Active',
+      'status-resolved': contact.status === 'Resolved'
+    }"></i>
+          </td>
+          <td class="contact-name">{{contact.name}}</td>
+          <td class="contact-email" [attr.data-full-email]="contact.email" (click)="openMail(contact)">
+            {{ contact.email.length <= 10 ? contact.email : contact.email.slice(0, 6) + '...' }} </td>
+          <td class="contact-email" [attr.data-full-email]="contact.message" (click)="openContactDetailDialog(contact)">
+            {{contact.message.slice(0,10)}}...</td>
+          <td class="contact-date">{{contact.createdAt | date: 'd MMM YY'}}</td>
+        </tr>
+        <tr>
+          <td colspan="3" *ngIf="current_page==0" class="text-center">
+            No Data to Display
+          </td>
+        </tr>
+      </tbody>
+
+
+    </table>
+  </div>
+  <div class="table-footer">
+    <div class="entries-info">
+      Showing {{startEntry}} to {{endEntry}} of {{filteredContacts.length}} entries </div>
+    <div class="pagination">
+      <button class="page-btn" title="Prev" (click)="updatePage(current_page-1)" [disabled]="current_page<=1">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <!-- <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button> -->
+      <button class="page-btn" *ngFor="let page of [].constructor(pages);let i = index" [id]="'page'+(i+1)"
+        [title]="'Page' +(i+1)" [class.active]="current_page==i+1" (click)="updatePage(i+1)">{{i+1}}</button>
+      <button class="page-btn" title="Next" (click)="updatePage(current_page+1)" [disabled]="current_page==pages">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</main>

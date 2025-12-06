@@ -1,0 +1,4 @@
+.btn.submit:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}

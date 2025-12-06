@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "*.component.html": "html"
+  },
+  "html.validate.scripts": false,
+  "html.validate.styles": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "htmlhint.enable": false,
+  "editor.formatOnSave": true
+}

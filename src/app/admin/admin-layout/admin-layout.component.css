@@ -1,0 +1,142 @@
+div:has(> .login-form) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  background-color: #f5f5f5;
+
+}
+
+body {
+  background-color: #f5f7fb;
+}
+
+.login-form {
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form button[type='submit'] {
+  font-size: large;
+  padding: 0.5rem 1rem;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.login-form .error-message {
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.login-form .password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 2.5rem;
+  /* Space for the toggle icon */
+}
+
+.password-wrapper .toggle-password {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  user-select: none;
+}
+
+
+
+
+/* Header Design */
+
+.logo {
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  margin: auto;
+  color: #0a2e5c;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  font-weight: 600;
+}
+
+nav ul li a.active {
+  font-weight: 900;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #c9a227;
+  transition: all 0.3s ease;
+}
+
+nav ul li a.active::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.8rem;
+  color: #0a2e5c;
+  cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: 80px;
+    left: 2.5%;
+    width: 95%;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+
+  nav.open {
+    transform: translateY(-200%);
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+}
