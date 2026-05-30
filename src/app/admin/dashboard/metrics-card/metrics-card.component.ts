@@ -10,9 +10,10 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 export class MetricsCardComponent {
   @Input() data: {
     views: number;
+    unique_views: number;
     enquiries: number;
     listings: number;
-  } = { views: 0, enquiries: 0, listings: 0 };
+  } = { views: 0, unique_views: 0, enquiries: 0, listings: 0 };
   colors: string[] = [
     'rgb(22, 160, 133)', // Teal
     'rgb(243, 156, 18)', // Amber
@@ -30,9 +31,15 @@ export class MetricsCardComponent {
   metrics = [
     {
       title: 'Total Views',
-      tooltip: 'Number of registered users on the platform',
+      tooltip: 'Number of views for the property',
       value: this.data.views || 0,
       icon: 'fas fa-eye',
+    },
+    {
+      title: 'Unique Views',
+      tooltip: 'Total no of unique users who have viewed the listings',
+      value: this.data.unique_views || 0,
+      icon: 'fas fa-envelope',
     },
     {
       title: 'Total Enquirys',
@@ -42,7 +49,7 @@ export class MetricsCardComponent {
     },
     {
       title: 'Total Listings',
-      tooltip: 'Number of registered users on the platform',
+      tooltip: 'Number of listings on the platform',
       value: this.data.listings || 0,
       icon: 'fas fa-home',
     },
@@ -50,8 +57,9 @@ export class MetricsCardComponent {
   ngOnChanges(changes: SimpleChanges) {
     if ('data' in changes) {
       this.metrics[0].value = this.data.views || 0;
-      this.metrics[1].value = this.data.enquiries || 0;
-      this.metrics[2].value = this.data.listings || 0;
+      this.metrics[1].value = this.data.unique_views || 0;
+      this.metrics[2].value = this.data.enquiries || 0;
+      this.metrics[3].value = this.data.listings || 0;
     }
   }
 

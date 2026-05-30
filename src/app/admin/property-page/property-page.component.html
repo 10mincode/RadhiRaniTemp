@@ -3,9 +3,9 @@
     <h1>{{property.propertyName}}</h1>
     <div class="location">
       <i class="fas fa-map-marker-alt"></i>
-      <span>{{property.location.city}}, {{property.location.state}}</span>
+      <span>{{property.location.locality}}, {{property.location.city}}, {{property.location.state}}</span>
     </div>
-    <div class="price">₹{{property.actualPrice}} <s><span>₹{{property.showcasePrice}}</span></s></div>
+    <div class="price">₹{{property.startingPrice}} <span>₹{{getPriceUnit(property.priceUnit)}}</span></div>
   </div>
 </section>
 
@@ -18,135 +18,14 @@
         <p>{{property.description}}</p>
 
         <div class="project-features">
-          <h3>Property Features</h3>
+          <h3>Amenities</h3>
           <div class="features-grid">
-            <div class="feature-item" *ngIf="property.features.bedrooms">
-              <i class="fas fa-bed"></i>
-              <span>{{property.features.bedrooms}} Bedrooms</span>
+            <div class="feature-item" *ngFor="let amenity of property.amenities">
+              <i class="fas {{amenity}}"></i>
+              <span>{{amenity}}</span>
             </div>
-            <div class="feature-item" *ngIf="property.features.bathrooms">
-              <i class="fas fa-bath"></i>
-              <span>{{property.features.bathrooms}} Bathrooms</span>
-            </div>
-            <div class="feature-item" *ngIf="property.features.areaSqFt">
-              <i class="fas fa-ruler-combined"></i>
-              <span>{{property.features.areaSqFt | number}} sq ft</span>
-            </div>
-            <div class="feature-item" *ngIf="property.features.amenities.parks">
-              <i class="fas fa-tree"></i>
-              <span>Parks</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.garden">
-              <i class="fas fa-leaf"></i>
-              <span>Garden</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.swimmingPool">
-              <i class="fas fa-swimming-pool"></i>
-              <span>Swimming Pool</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.gym">
-              <i class="fas fa-dumbbell"></i>
-              <span>Gym</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.security">
-              <i class="fas fa-shield-alt"></i>
-              <span>24x7 Security</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.parking">
-              <i class="fas fa-car"></i>
-              <span>Parking</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.playArea">
-              <i class="fas fa-child"></i>
-              <span>Kids Play Area</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.clubHouse">
-              <i class="fas fa-users"></i>
-              <span>Club House</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.shoppingCenter">
-              <i class="fas fa-store"></i>
-              <span>Shopping Center</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.publicTransport">
-              <i class="fas fa-bus"></i>
-              <span>Public Transport</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.cCRoads">
-              <i class="fas fa-road"></i>
-              <span>CC Roads</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.powerBackup">
-              <i class="fas fa-bolt"></i>
-              <span>Power Backup</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities">
-              <i class="fas fa-elevator"></i>
-              <span>Lift</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.waterSupply">
-              <i class="fas fa-tint"></i>
-              <span>Water Supply</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.wideSewage">
-              <i class="fas fa-toilet"></i>
-              <span>Wide Sewage System</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.rainWaterHarvesting">
-              <i class="fas fa-cloud-rain"></i>
-              <span>Rain Water Harvesting</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.fireSafety">
-              <i class="fas fa-fire-extinguisher"></i>
-              <span>Fire Safety</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.smartHome">
-              <i class="fas fa-home"></i>
-              <span>Smart Home</span>
-            </div>
-
-            <div class="feature-item" *ngIf="property.features.amenities.petFriendly">
-              <i class="fas fa-paw"></i>
-              <span>Pet Friendly</span>
-            </div>
-
-            <!-- Accessibility (loop through array) -->
             <div class="feature-item-list" style="grid-column: span 2; display: flex; gap: 10px; flex-wrap: wrap;"
-              *ngIf="property.features.amenities.accessibility.length>0">
-              <h4 style="width: 100%;">Accessibility</h4>
-              <div class="feature-item" *ngIf="property.features.amenities.accessibility.includes('Ramp')">
-                <i class="fas fa-wheelchair"></i>
-                <span>Ramp</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-stairs"></i>
-                <span>Stairs</span>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-elevator"></i>
-                <span>Lift</span>
-              </div>
-            </div>
-
-            <div class="feature-item-list" style="grid-column: span 2; display: flex; gap: 10px; flex-wrap: wrap;"
-              *ngIf="property.location.nearbyLandmarks.length>0">
+              *ngIf="property.location.nearbyLandmarks">
               <h4 style="width: 100%;">Nearby Landmarks</h4>
               <div class="feature-item" *ngFor="let landmark of property.location.nearbyLandmarks">
                 <i class="fas fa-location-dot"></i>
@@ -164,40 +43,21 @@
         </div>
         <div class="sidebar-item">
           <h3>Price</h3>
-          <p class="price">₹{{property.actualPrice}} <br> <s
-              style="text-decoration-color: red; text-decoration-thickness: 2px;">₹{{property.showcasePrice}}</s></p>
+          <p class="price">₹{{property.startingPrice}} <span>₹{{getPriceUnit(property.priceUnit)}}</span></p>
         </div>
         <div class="sidebar-item">
           <h3>Location</h3>
-          <p>{{property.location.city}}, {{property.location.state}}</p>
+          <p>{{property.location.locality}}, {{property.location.city}}, {{property.location.state}}</p>
         </div>
         <div class="sidebar-item">
           <h3>Year Built</h3>
-          <p>{{property.features.yearBuilt}}</p>
+          <p>{{property.yearBuilt}}</p>
         </div>
         <div class="sidebar-item">
           <h3>Status</h3>
           <p>{{property.status}}</p>
         </div>
 
-        <div class="enquiry-form">
-          <h3 id="enquiryFormtag">Request Information</h3>
-          <form id="enquiryForm">
-            <div class="form-group">
-              <input type="text" id="enquiryName" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-              <input type="email" id="enquiryEmail" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-              <input type="tel" id="enquiryPhone" placeholder="Your Phone">
-            </div>
-            <div class="form-group">
-              <textarea id="enquiryMessage" placeholder="Your Message" rows="4"></textarea>
-            </div>
-            <button type="submit" class="btn">Send Enquiry</button>
-          </form>
-        </div>
       </div>
     </div>
   </div>
@@ -212,11 +72,10 @@
     </div>
 
     <div class="gallery-container">
-      <img src="{{property.media.thumbnail}}" alt="Ocean View Villa" class="main-image" id="mainImage">
+      <img src="{{property.media.thumbnail}}" class="main-image" id="mainImage">
 
       <div class="thumbnail-container">
-        <img src="{{property.media.thumbnail}}" alt="Ocean View Villa" class="thumbnail active"
-          (click)="changeImage($event)">
+        <img src="{{property.media.thumbnail}}" class="thumbnail active" (click)="changeImage($event)">
         <img *ngFor="let img of property.media.images" src="{{img}}" alt="Ocean View Villa" class="thumbnail"
           (click)="changeImage($event)">
       </div>

@@ -1,0 +1,29 @@
+<!-- MODAL wrapper, only when isModal=true -->
+<div class="modal-overlay" *ngIf="isModal" (click)="dismiss()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+        <ng-container *ngTemplateOutlet="formContent"></ng-container>
+    </div>
+</div>
+
+<!-- PLAIN PAGE, only when isModal=false -->
+<div class="page-box" *ngIf="!isModal">
+    <ng-container *ngTemplateOutlet="formContent"></ng-container>
+</div>
+
+<ng-template #formContent>
+    <h3>Add Locality</h3>
+
+    <input [(ngModel)]="state" placeholder="State" />
+    <input [(ngModel)]="city" placeholder="City" />
+    <input [(ngModel)]="locality" placeholder="Locality" />
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <p class="success" *ngIf="success">Locality added!</p>
+
+    <div class="actions">
+        <button (click)="dismiss()">Cancel</button>
+        <button (click)="submit()" [disabled]="loading">
+            {{ loading ? 'Adding...' : 'Add' }}
+        </button>
+    </div>
+</ng-template>

@@ -9,6 +9,10 @@ import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.componen
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ViewAllPropertiesComponent } from './admin/view-all-properties/view-all-properties.component';
+import { PropertiesComponent } from './properties/properties.component';
+import { AddLocalityComponent } from './admin/add-locality/add-locality.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
 
 const routes: Routes = [
   {
@@ -18,9 +22,12 @@ const routes: Routes = [
       { component: HomePageComponent, path: '' },
       { component: HomePageComponent, path: 'home' },
       { path: 'property/:id', component: PropertyPageComponent },
+      { path: 'properties', component: PropertiesComponent }
       // other public routes
     ],
   },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'terms-of-service', component: TermsOfServiceComponent },
 
   {
     path: 'admin',
@@ -30,6 +37,7 @@ const routes: Routes = [
       { component: DashboardComponent, path: 'dashboard' },
       { component: ViewAllPropertiesComponent, path: 'viewall' },
       { component: AdminPropertyPageComponent, path: 'property/:id' },
+      { component: AddLocalityComponent, path: 'add-locality' },
     ],
   },
   { component: NotFoundComponent, path: '**' },
@@ -44,4 +52,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

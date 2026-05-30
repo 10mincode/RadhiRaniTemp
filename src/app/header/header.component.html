@@ -1,7 +1,8 @@
 <header>
   <div class="container">
     <div class="logo" (click)="logoClick()">
-      <h1>RADHARANI<span>PROPERTIES</span></h1>
+      <!-- <h1>RADHARANI<span>PROPERTIES</span></h1> -->
+      <img src="../../assets/logo/mainlogo.png" alt="">
     </div>
 
     <!-- Mobile Menu Button -->
@@ -15,9 +16,13 @@
       <ul>
         <li><a href="#home" (click)="closeMenu()">Home</a></li>
         <li><a href="#about" (click)="closeMenu()">About Us</a></li>
-        <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
+        <li><a href="#why-choose-us" (click)="closeMenu()">Why Choose Us</a></li>
+        <li><a [routerLink]="['/properties']" (click)="closeMenu()">Projects</a></li>
         <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
       </ul>
     </nav>
+
   </div>
+
+
 </header>

@@ -31,6 +31,7 @@
     "@progress/kendo-licensing": "^1.7.0",
     "@progress/kendo-theme-default": "12.0.0",
     "chart.js": "^4.5.1",
+    "country-state-city": "^3.2.1",
     "firebase-tools": "^14.17.0",
     "ng2-charts": "^8.0.0",
     "rxjs": "~6.6.0",

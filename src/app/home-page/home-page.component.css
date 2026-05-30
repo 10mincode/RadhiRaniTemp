@@ -2,3 +2,160 @@
   background-color: grey;
   cursor: not-allowed;
 }
+
+
+.chooseuslist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.chooseuslist li {
+  padding: 0.8rem 1.2rem;
+  border-left: 3px solid #C9A84C;
+  background: rgba(201, 168, 76, 0.05);
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.chooseuslist li::before {
+  content: '✓ ';
+  color: #C9A84C;
+  font-weight: bold;
+}
+
+.chooseuslist li:hover {
+  background: rgba(201, 168, 76, 0.12);
+  padding-left: 1.6rem;
+}
+
+.slide-content h1 {
+  text-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.55),
+    0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.slide-content p {
+  text-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.55),
+    0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.section-top {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 50px;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.view-all-btn {
+
+  position: absolute;
+
+  right: 2rem;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 26px;
+
+  border-radius: 999px;
+
+  background: #fff;
+
+  color: var(--primary-color);
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  border: 1px solid rgba(179, 9, 11, 0.18);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.05);
+
+  transition: all .35s ease;
+}
+
+.view-all-btn:hover {
+
+  background: var(--primary-color);
+
+  color: #fff;
+
+  transform:
+    translateY(-50%) translateY(-3px);
+}
+
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeMove 10s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 16px;
+  flex-shrink: 0;
+}
+
+.most-searched-btn {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 40px;
+  background: #ffffff;
+  color: var(--secondary-color);
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.most-searched-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: var(--primary-color);
+  color: white;
+}
+
+@keyframes marqueeMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
+}

@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class ProjectsService {
   private jsonUrl = 'assets/projects.json';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // getProjects(): Observable<Property[]> {
   //   return this.http.get<Property[]>(this.jsonUrl);
@@ -26,6 +26,11 @@ export class ProjectsService {
 
     // return this.http.get<Property[]>(this.jsonUrl);
   }
+  getProjectsAdmin(): Observable<Property[]> {
+    return this.http.get<Property[]>(`${AppComponent.apiLink}/properties/admin`);
+
+    // return this.http.get<Property[]>(this.jsonUrl);
+  }
   getProjectById(id: string): Observable<Property | undefined> {
     return this.http.get<Property>(`${AppComponent.apiLink}/properties/${id}`);
   }
@@ -37,5 +42,21 @@ export class ProjectsService {
   }
   deleteProperty(id: string): Observable<any> {
     return this.http.delete(`${AppComponent.apiLink}/properties/${id}`);
+  }
+  recordView(propertyId: string): Observable<any> {
+    return this.http.post(`${AppComponent.apiLink}/property-view/${propertyId}/view`, {});
+  }
+
+  getViewStats(propertyId: string): Observable<any> {
+    return this.http.get(`${AppComponent.apiLink}/property-view/stats/${propertyId}`);
+  }
+  getTotalStats(): Observable<any> {
+    return this.http.get(`${AppComponent.apiLink}/property-view/stats/all`);
+  }
+  toggleFeatured(id: string, isFeatured: boolean): Observable<Property> {
+    return this.http.put<Property>(`${AppComponent.apiLink}/properties/${id}/feature`, { isFeatured: !isFeatured });
+  }
+  toggleVisibility(id: string, isVisible: boolean): Observable<Property> {
+    return this.http.put<Property>(`${AppComponent.apiLink}/properties/${id}/visibility`, { isVisible: !isVisible });
   }
 }

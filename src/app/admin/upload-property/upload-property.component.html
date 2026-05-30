@@ -1,5 +1,8 @@
 <div class="upload-container">
-  <h2>Upload Property</h2>
+  <div style="display: flex; flex-wrap: wrap; width:100%; justify-content: space-between;">
+    <h2>Upload Property</h2>
+    <button class="btn btn-secondary" (click)="showAddLocality=true;">Add Locality +</button>
+  </div>
   <form [formGroup]="propertyForm" (ngSubmit)="submit()">
 
     <div class="form-group">
@@ -16,29 +19,6 @@
       <label for="description">Description</label>
       <textarea id="description" formControlName="description" rows="3" class="form-control"></textarea>
     </div>
-    <div class="form-group">
-      <label for="furnishing">Furnishing</label>
-      <select id="furnishing" formControlName="furnishing" class="form-control">
-        <option value="" disabled>-- SELECT --</option>
-        <option>Furnished</option>
-        <option>Semi-Furnished</option>
-        <option>Unfurnished</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="facing">Facing</label>
-      <select id="facing" formControlName="facing" class="form-control">
-        <option value="" disabled>-- SELECT --</option>
-        <option>North</option>
-        <option>South</option>
-        <option>East</option>
-        <option>West</option>
-        <option>North-East</option>
-        <option>North-West</option>
-        <option>South-East</option>
-        <option>South-West</option>
-      </select>
-    </div>
 
     <div formGroupName="location">
       <h3>Location</h3>
@@ -49,26 +29,37 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="city">City</label>
-          <input type="text" id="city" formControlName="city" class="form-control">
+          <label for="state">State</label>
+          <!-- <input type="text" id="state" formControlName="state" class="form-control"> -->
+          <select formControlName="state" id="state" class="form-control" (change)="onStateSelected($event)">
+            <option [value]="">--Select State--</option>
+            @for(state of statecity; track state.state){
+            <option>{{state.state}}</option>
+            }
+          </select>
         </div>
         <div class="form-group">
-          <label for="state">State</label>
-          <input type="text" id="state" formControlName="state" class="form-control">
+          <label for="city">City</label>
+          <select formControlName="city" id="city" class="form-control" [disabled]="!citiesList.length"
+            (change)="onCitySelected($event)">
+            <option [value]="">--Select City--</option>
+            @for(city of citiesList; track city.city){
+            <option>{{city.city}}</option>
+            }
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="locality">Locality</label>
+          <select formControlName="locality" id="locality" class="form-control" [disabled]="!localitiesList.length">
+            <option [value]="">--Select Locality--</option>
+            @for(locality of localitiesList; track locality){
+            <option>{{locality}}</option>
+            }
+          </select>
         </div>
         <div class="form-group">
           <label for="postalCode">Postal Code</label>
           <input type="text" id="postalCode" formControlName="postalCode" maxlength="6" class="form-control">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="latitude">Latitude</label>
-          <input type="number" id="latitude" formControlName="latitude" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="longitude">Longitude</label>
-          <input type="number" id="longitude" formControlName="longitude" class="form-control">
         </div>
       </div>
       <h3>Nearby Landmarks</h3>
@@ -108,16 +99,13 @@
     <div class="form-row">
       <div class="form-group">
         <label for="propertyType">Property Type</label>
-        <select id="propertyType" formControlName="propertyType" class="form-control">
+        <select id="propertyType" formControlName="propertyType" class="form-control"
+          (change)="onPropertyTypeChange($event)">
           <option value="" disabled>-- SELECT --</option>
           <option>Villa</option>
-          <option>Apartment</option>
+          <option>Modern Apartment</option>
           <option>Farm House</option>
-          <option>Land</option>
-          <option>Commercial Space</option>
-          <option>Shop</option>
-          <option>Office Space</option>
-          <option>Plots</option>
+          <option>Plots Township</option>
         </select>
       </div>
 
@@ -125,155 +113,61 @@
         <label for="status">Status</label>
         <select id="status" formControlName="status" class="form-control">
           <option value="" disabled>-- SELECT --</option>
-          <option>Ready to Move</option>
           <option>Under Construction</option>
-          <option>New Launch</option>
+          <option>Developing</option>
+          <option>Developed</option>
+          <option>Coming Soon!</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label>Year Built</label>
+        <input type="number" formControlName="yearBuilt" class="form-control" maxlength="4" minlength="4">
       </div>
     </div>
 
     <h3>Pricing</h3>
     <div class="form-row">
       <div class="form-group">
-        <label for="actualPrice">Actual Price</label>
-        <input type="number" id="actualPrice" formControlName="actualPrice" class="form-control no-spinner">
+        <label for="actualPrice">Starting Price (In ₹)</label>
+        <input type="number" id="starting_price" formControlName="startingPrice" class="form-control no-spinner">
       </div>
       <div class="form-group">
-        <label for="showcasePrice">Showcase Price</label>
-        <input type="number" id="showcasePrice" formControlName="showcasePrice" class="form-control no-spinner">
-      </div>
-      <div class="form-group">
-        <label for="pricePerSqFt">Price per Sq.Ft</label>
-        <input type="number" id="pricePerSqFt" formControlName="pricePerSqFt" class="form-control no-spinner">
+        <label for="showcasePrice">Price Unit</label>
+        <select id="priceUnit" formControlName="priceUnit" class="form-control">
+          <option value="">-- SELECT --</option>
+          <option value="per_sqft">Per Sq.Ft</option>
+          <option value="per_acre">Per Acre</option>
+          <option value="per_sqyd">Per Sq.Yard</option>
+          <option value="monthly">Monthly</option>
+          <option value="none">No Unit</option>
+        </select>
       </div>
     </div>
 
-    <div formGroupName="features">
-      <h3>Features</h3>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Bedrooms</label>
-          <input type="number" formControlName="bedrooms" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Bathrooms</label>
-          <input type="number" formControlName="bathrooms" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Area (Sq.Ft)</label>
-          <input type="number" formControlName="areaSqFt" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Floor</label>
-          <input type="number" formControlName="floor" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Total Floors</label>
-          <input type="number" formControlName="totalFloors" class="form-control" maxlength="3" minlength="1">
-        </div>
-        <div class="form-group">
-          <label>Year Built</label>
-          <input type="number" formControlName="yearBuilt" class="form-control" maxlength="4" minlength="4">
-        </div>
-      </div>
+    <div formGroupName="amenities">
+
       <h3>Amenities</h3>
-      <div formGroupName="amenities">
-        <div class="form-column grid">
-          <div class="form-group">
-            <input type="checkbox" formControlName="parks" id="parks">
-            <label for="parks">Parks</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="garden" id="garden">
-            <label for="garden">Garden</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="swimmingPool" id="swimmingPool">
-            <label for="swimmingPool">Swimming Pool</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="gym" id="gym">
-            <label for="gym">Gym</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="security" id="security">
-            <label for="security">Security</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="parking" id="parking">
-            <label for="parking">Parking</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="playArea" id="playArea">
-            <label for="playArea">Play Area</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="clubHouse" id="clubHouse">
-            <label for="clubHouse">Club House</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="shoppingCenter" id="shoppingCenter">
-            <label for="shoppingCenter">Shopping Center</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="publicTransport" id="publicTransport">
-            <label for="publicTransport">Public Transport</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="cCRoads" id="cCRoads">
-            <label for="cCRoads">C.C. Roads</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="powerBackup" id="powerBackup">
-            <label for="powerBackup">Power Backup</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="waterSupply" id="waterSupply">
-            <label for="waterSupply">Water Supply</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="wideSewage" id="wideSewage">
-            <label for="wideSewage">Wide Sewage</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="rainWaterHarvesting" id="rainWaterHarvesting">
-            <label for="rainWaterHarvesting">Rain Water Harvesting</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="fireSafety" id="fireSafety">
-            <label for="fireSafety">Fire Safety</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="smartHome" id="smartHome">
-            <label for="smartHome">Smart Home</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="petFriendly" id="petFriendly">
-            <label for="petFriendly">Pet Friendly</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" formControlName="MovieHall" id="MovieHall">
-            <label for="MovieHall">Movie Hall</label>
-          </div>
+      <!-- Common -->
+      <h4>Common Amenities</h4>
+      <div class="form-column grid">
+        <div class="form-group" *ngFor="let amenity of commonAmenities">
+          <input type="checkbox" [value]="amenity.label" [id]="amenity.label" (change)="onAmenityChange($event)">
+          <label [for]="amenity.label"><i class="fa {{amenity.icon}}"></i>{{ amenity.label }}</label>
         </div>
       </div>
-      <div class="form-group">
-        <h3>Accesibilities</h3>
+
+      <!-- Type Specific -->
+      <ng-container *ngIf="specificAmenities.length > 0">
+        <h4>{{ propertyForm.get('propertyType')?.value }} Amenities</h4>
         <div class="form-column grid">
-          <div class="form-group">
-            <input type="checkbox" id="ramp" (change)="onAccesibilityChange($event)">
-            <label for="ramp">Ramp</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" id="stairs" (change)="onAccesibilityChange($event)">
-            <label for="stairs">Stairs</label>
-          </div>
-          <div class="form-group">
-            <input type="checkbox" id="lift" (change)="onAccesibilityChange($event)">
-            <label for="lift">Lift</label>
+          <div class="form-group" *ngFor="let amenity of specificAmenities">
+
+            <input type="checkbox" [value]="amenity.label" [id]="amenity.label" (change)="onAmenityChange($event)">
+            <label class="amentity-card" [for]="amenity.label"><i class="fa {{amenity.icon}}"></i> {{ amenity.label
+              }}</label>
           </div>
         </div>
-      </div>
+      </ng-container>
     </div>
 
     <div formGroupName="media">
@@ -302,6 +196,36 @@
         </div>
 
       </div>
+      <h3>YouTube Videos</h3>
+
+      <div class="form-row">
+
+        <input #videoInput type="text" class="form-control" placeholder="https://youtube.com/watch?v=...">
+
+        <button type="button" (click)="addVideo(videoInput.value); videoInput.value=''">
+          Add Video
+        </button>
+
+      </div>
+
+      <div class="uploaded-videos">
+
+        <div *ngFor="let video of videoUrls.controls; let i=index">
+
+          <iframe width="300" height="180" [src]="getEmbedUrl(video.value)">
+          </iframe>
+
+          <a [href]="video.value" target="_blank">
+            {{video.value}}
+          </a>
+
+          <button type="button" (click)="removeVideo(i)">
+            Remove
+          </button>
+
+        </div>
+
+      </div>
     </div>
 
     <div class="form-actions">
@@ -310,3 +234,7 @@
     </div>
   </form>
 </div>
+
+<app-add-locality *ngIf="showAddLocality" [isModal]="true" (close)="showAddLocality = false; refreshLocalities();"
+  (localityAdded)="refreshLocalities()">
+</app-add-locality>

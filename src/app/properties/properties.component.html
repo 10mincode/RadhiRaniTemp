@@ -1,0 +1,109 @@
+<div class="properties-page">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>All Properties</h1>
+        <p>Find your perfect property from our exclusive listings</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-container">
+        <div class="filters">
+            <!-- Search -->
+            <div class="filter-group">
+                <input type="text" placeholder="Search by name..." [(ngModel)]="searchQuery" (input)="onSearch()"
+                    class="search-input">
+            </div>
+
+            <!-- Property Type -->
+            <div class="filter-group">
+                <select (change)="onTypeChange($event)" class="filter-select">
+                    <option value="">All Types</option>
+                    <option *ngFor="let type of propertyTypes" [value]="type">{{type}}</option>
+                </select>
+            </div>
+
+            <!-- State -->
+            <div class="filter-group">
+                <select (change)="onStateChange($event)" class="filter-select" [(ngModel)]="selectedState">
+                    <option value="">All States</option>
+                    <option *ngFor="let s of statecity" [value]="s.state">{{s.state}}</option>
+                </select>
+            </div>
+
+            <!-- City -->
+            <div class="filter-group">
+                <select (change)="onCityChange($event)" [disabled]="!citiesList.length" class="filter-select"
+                    [(ngModel)]="selectedCity">
+                    <option value="">All Cities</option>
+                    <option *ngFor=" let c of citiesList" [value]="c.city">{{c.city}}</option>
+                </select>
+            </div>
+
+            <!-- Locality -->
+            <div class="filter-group">
+                <select (change)="onLocalityChange($event)" [disabled]="!localitiesList.length" class="filter-select"
+                    [(ngModel)]="selectedLocality">
+                    <option value="">All Localities</option>
+                    <option *ngFor="let l of localitiesList" [value]="l">{{l}}</option>
+                </select>
+            </div>
+
+            <!-- Clear -->
+            <button class="clear-btn" (click)="clearFilters()">
+                <i class="fas fa-times"></i> Clear Filters
+            </button>
+            <br>
+        </div>
+        <!-- Most Searched Filters -->
+        <div class="most-searched-filters">
+            <h4>Most Searched: </h4>
+            @for(locality of allLocalities; track locality.locality){
+            <button class="most-searched-btn" id="{{locality.locality}}"
+                (click)="onMSClicked($event)">{{locality.locality}}</button>
+            }
+        </div>
+
+    </div>
+
+
+    <!-- Results Count -->
+    <div class="results-info">
+        <p>Showing <strong>{{filteredProperties.length}}</strong> of <strong>{{allProperties.length}}</strong>
+            properties</p>
+    </div>
+
+    <!-- Properties Grid -->
+    <div class="properties-grid" *ngIf="filteredProperties.length > 0">
+        <div class="project-card" *ngFor="let property of filteredProperties"
+            (click)="viewProperty(property.propertyId)">
+            <div class="project-image">
+                <img [src]="property.media.thumbnail" [alt]="property.propertyName">
+                <div class="project-type">{{property.propertyType}}</div>
+            </div>
+            <div class="project-info">
+                <h3>{{property.propertyName}}</h3>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{property.location.locality ? property.location.locality + ', ' : ''}}
+                    {{property.location.city}}, {{property.location.state}}
+                </div>
+                <div class="price">₹{{property.startingPrice | number}}
+                    <span class="price-unit">{{getPriceUnit(property.priceUnit)}}</span>
+                </div>
+                <p>{{property.description.substring(0, 150)}}...</p>
+                <a [routerLink]="['/property', property.propertyId]" class="btn" (click)="$event.stopPropagation()">View
+                    More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Results -->
+    <div class="no-results" *ngIf="filteredProperties.length === 0">
+        <i class="fas fa-search"></i>
+        <h3>No properties found</h3>
+        <p>Try adjusting your filters</p>
+        <button class="btn" (click)="clearFilters()">Clear Filters</button>
+    </div>
+
+</div>

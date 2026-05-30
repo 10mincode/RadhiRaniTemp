@@ -1,29 +1,62 @@
 <section id="home" class="hero">
+  <div class="marquee-wrapper" [routerLink]="['/properties']">
+
+    <div class="marquee-track">
+
+      <!-- First Set -->
+      <div class="marquee-content">
+        @for(locality of allLocalities; track locality){
+        <button class="most-searched-btn" id="{{locality}}" (click)="onLocalityClick(locality)">{{locality}}</button>
+        }
+      </div>
+      <div class="marquee-content">
+        @for(locality of allLocalities; track locality){
+        <button class="most-searched-btn" id="{{locality}}" (click)="onLocalityClick(locality)">{{locality}}</button>
+        }
+      </div>
+      <div class="marquee-content">
+        @for(locality of allLocalities; track locality){
+        <button class="most-searched-btn" id="{{locality}}" (click)="onLocalityClick(locality)">{{locality}}</button>
+        }
+      </div>
+      <div class="marquee-content">
+        @for(locality of allLocalities; track locality){
+        <button class="most-searched-btn" id="{{locality}}" (click)="onLocalityClick(locality)">{{locality}}</button>
+        }
+      </div>
+    </div>
+
+  </div>
   <div class="hero-slider">
-    <div class="slide active"
-      style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+    <div class="slide active" style="background-image: url('assets/images/plots.png');">
+      <div class="slide-content">
+        <h1>Plots Township</h1>
+        <p>Build your dream home on premium land</p>
+        <a href="#projects" class="btn">Explore Properties</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('assets/images/farmhouse.png');">
+      <div class="slide-content">
+        <h1>Luxury Farmhouses</h1>
+        <p>Peaceful living close to nature</p>
+        <a href="#projects" class="btn">Explore Properties</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('assets/images/villas.png');">
       <div class="slide-content">
         <h1>Premium Luxury Villas</h1>
         <p>Experience the pinnacle of luxury living</p>
         <a href="#projects" class="btn">Explore Properties</a>
       </div>
     </div>
-    <div class="slide"
-      style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+    <div class="slide" style="background-image: url('assets/images/modernapartments.png');">
       <div class="slide-content">
         <h1>Modern Apartments</h1>
         <p>Contemporary living in prime locations</p>
-        <a href="#projects" class="btn">Explore Properties</a>
+        <a [routerLink]="['/properties']" class="btn">Explore Properties</a>
       </div>
     </div>
-    <div class="slide"
-      style="background-image: url('https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
-      <div class="slide-content">
-        <h1>Exclusive Land Plots</h1>
-        <p>Build your dream home on premium land</p>
-        <a href="#projects" class="btn">Explore Properties</a>
-      </div>
-    </div>
+
   </div>
   <div class="slider-controls">
     <div class="prev-btn"><i class="fas fa-chevron-left"></i></div>
@@ -40,13 +73,20 @@
     </div>
     <div class="about-content">
       <div class="about-text">
-        <p>With over 15 years of experience in the real estate industry, RADHARANI PROPERTIES has
-          established itself as a trusted name in premium property development and sales. Our commitment
-          to excellence, attention to detail, and customer-centric approach have made us the preferred
-          choice for discerning homebuyers and investors.</p>
-        <p>Our portfolio includes luxury villas, modern apartments, commercial spaces, and premium land
-          plots in the most sought-after locations. Each property is carefully selected and developed to
-          meet the highest standards of quality, design, and sustainability.</p>
+        <p>With a strong legacy in Jaipur's real estate market, RADHARANI PROPERTIES is a trusted name
+          in premium plots and luxurious villa developments. We specialize in RERA-approved gated
+          townships designed to deliver modern living, secure investments, and long-term value for
+          families and investors alike.</p>
+        <p>At RADHARANI PROPERTIES, we believe that every property deal should be built on truth,
+          transparency, and trust. Our customer-first approach, ethical business practices, and
+          commitment to quality have helped us create a strong reputation in the real estate industry.</p>
+        <p>Our premium townships are thoughtfully planned with wide roads, landscaped surroundings,
+          modern infrastructure, and all essential lifestyle amenities including security, parks, water
+          supply, street lighting, and recreational spaces. Every project is strategically located to
+          provide excellent connectivity and future growth potential.</p>
+        <p>From residential plots to elegant villas, we offer properties that combine luxury, comfort,
+          and smart investment opportunities. Our vision is to help people turn their dream of owning a
+          perfect property into reality with confidence and peace of mind.</p>
         <div class="values">
           <div class="value">
             <i class="fas fa-gem"></i>
@@ -66,9 +106,58 @@
         </div>
       </div>
       <div class="about-image">
-        <img
-          src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
-          alt="Our Office">
+        <img src="../../assets/images/aboutus.png" alt="Our Office">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="why-choose-us" class="about">
+  <div class="container">
+    <div class="section-header">
+      <h2>Why Choose <span>RADHARANI PROPERTIES</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="section-middle quote">
+
+      <p style="margin-bottom:1rem; margin-top: 2rem;" class="main-quote">
+        <span
+          style="position: absolute; top: -2rem; left: 0; font-size: 4rem; color: var(--secondary-color); line-height: 1;">❛❛</span>
+
+        At RADHARANI PROPERTIES, we don't just sell properties—we help you find the right one. Under one roof, we offer
+        carefully selected properties that match your preferred location, budget, and lifestyle. Whether you're buying
+        for
+        investment or your dream home, our commitment to transparency, value, and customer satisfaction ensures a smooth
+        and
+        rewarding real estate journey.<br>
+      </p>
+      <p style="color: var(--secondary-color);"><strong>"सपनों की ज़मीन, भरोसे के साथ"</strong></p>
+
+    </div>
+    <div class="about-content">
+
+      <div class="about-image">
+        <img src="../../assets/images/wcu.png" alt="Our Office">
+      </div>
+      <div class="about-text">
+        <ul class="chooseuslist">
+          <li>RERA Approved Projects</li>
+
+          <li> Luxurious Gated Townships</li>
+
+          <li>Prime Locations in Jaipur</li>
+
+          <li>Modern Amenities & Infrastructure</li>
+
+          <li>Transparent & Trusted Deals</li>
+
+          <li>Secure Investment Opportunities</li>
+
+          <li>Premium Plots & Villas</li>
+
+          <li>Customer-Centric Service</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -77,27 +166,25 @@
 <!-- Projects Section -->
 <section id="projects" class="projects">
   <div class="container">
-    <div class="section-header">
-      <h2>Featured <span>Projects</span></h2>
-      <div class="divider"></div>
+    <div class="section-header" style="display: flex; align-items:center;justify-content: center;">
+      <div>
+        <h2>Featured <span>Projects</span></h2>
+        <div class="divider w-100"></div>
+      </div>
+      <button [routerLink]="['/properties']" class="view-all-btn">View All →</button>
     </div>
-    <div class="filter-buttons">
+    <div class=" filter-buttons">
       <button class="filter-btn" [class.active]="selectedFilter==='all'" (click)="filterProjects('all')">All</button>
+
+      <button class="filter-btn" [class.active]="selectedFilter==='plot'"
+        (click)="filterProjects('plot')">Plots</button>
+      <button class="filter-btn" [class.active]="selectedFilter==='farm house'"
+        (click)="filterProjects('farm house')">Farm
+        Houses</button>
       <button class="filter-btn" [class.active]="selectedFilter==='villa'"
         (click)="filterProjects('villa')">Villas</button>
       <button class="filter-btn" [class.active]="selectedFilter==='apartment'"
         (click)="filterProjects('apartment')">Apartments</button>
-      <button class="filter-btn" [class.active]="selectedFilter==='farm house'"
-        (click)="filterProjects('farm house')">Farm
-        House</button>
-      <button class="filter-btn" [class.active]="selectedFilter==='land'" (click)="filterProjects('land')">Land</button>
-      <button class="filter-btn" [class.active]="selectedFilter==='commerical space'"
-        (click)="filterProjects('commerical space')">Commercial Space</button>
-      <button class="filter-btn" [class.active]="selectedFilter==='shop'" (click)="filterProjects('shop')">Shop</button>
-      <button class="filter-btn" [class.active]="selectedFilter==='office space'"
-        (click)="filterProjects('office space')">Office Space</button>
-      <button class="filter-btn" [class.active]="selectedFilter==='plot'"
-        (click)="filterProjects('plot')">Plots</button>
     </div>
     <div class="projects-grid">
       <!-- Projects -->
@@ -110,7 +197,7 @@
           <h3>{{project.propertyName}}</h3>
           <div class="location"><i class="fas fa-map-marker-alt"></i> {{project.location.city}},
             {{project.location.state}}</div>
-          <div class="price">₹{{project.actualPrice}} <s>₹{{project.showcasePrice}}</s></div>
+          <div class="price">₹{{project.startingPrice}} {{getPriceUnit(project.priceUnit)}}</div>
           <p>{{project.description.substring(0,200)}}</p>
           <a [routerLink]="['/property', project.propertyId]" class="btn">View More</a>
         </div>
@@ -155,7 +242,8 @@
             <textarea id="message" name="message" minlength="10" style="resize: vertical;min-height: max-content;"
               ngModel placeholder="Your Message (min 10 chars)" rows="5" required></textarea>
           </div>
-          <button type="submit" [disabled]="!contactform.valid" class="btn submit">Send Message</button>
+          <button type="submit" [disabled]="!contactform.valid && contact_submit_loading"
+            class="btn submit">{{contact_submit_loading ? 'Sending...' : 'Send Message'}}</button>
         </form>
       </div>
       <div class="contact-info">
@@ -163,14 +251,14 @@
           <i class="fas fa-map-marker-alt"></i>
           <div>
             <h4>Our Location</h4>
-            <p>123 Luxury Avenue, Beverly Hills, CA 90210</p>
+            <p>C7 Jain Tower, Ganatpura, Jaipur, Rajasthan 302020</p>
           </div>
         </div>
         <div class="info-item">
           <i class="fas fa-phone"></i>
           <div>
             <h4>Phone Number</h4>
-            <p>+1 (310) 555-1234</p>
+            <p>+91 7728906753</p>
           </div>
         </div>
         <div class="info-item">
@@ -194,7 +282,7 @@
       <h3>Find Us On Map</h3>
       <div class="map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d225.72150618940967!2d75.85797647275864!3d25.15109964051983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1757441570508!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.6512059795205!2d75.735765!3d26.851044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db50045610fc5%3A0xe4f201269b8b3957!2sHAVI%20real%20estate%20Group!5e0!3m2!1sen!2sin!4v1779892170592!5m2!1sen!2sin"
           width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>

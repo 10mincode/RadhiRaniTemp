@@ -12,10 +12,10 @@ a) views per day last 7 days
 b) inquiries per month last 6 months
 5) All properties listings with CRUD actions -->
 <div class="p-4">
+  <h2> Hii, {{ adminName }}</h2>
   <app-metrics-card [data]="metrics_data"></app-metrics-card>
   <div class="row">
     <app-latest-contacts class="col-lg-6 col-md-12"></app-latest-contacts>
     <app-latest-uploads [latestContacts]="properties" class="col-lg-6 col-md-12"></app-latest-uploads>
   </div>
-  <app-views-graph></app-views-graph>
 </div>

@@ -1,5 +1,11 @@
 .logo {
   cursor: pointer;
+  height: 4rem;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
 }
 
 nav ul {
@@ -24,6 +30,46 @@ nav ul li a:hover {
   font-size: 1.8rem;
   color: #0a2e5c;
   cursor: pointer;
+}
+
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.marquee {
+  flex-shrink: 0;
+  min-width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.marquee span {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  transform: translateX(80%);
+  font-weight: 500;
+}
+
+.most-searched-btn {
+
+  padding: 0.2rem 1rem;
+  outline: none;
+  border: none;
+  text-decoration: none !important;
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-weight: bolder;
+  font-size: large;
+}
+
+.most-searched-btn:hover {
+  text-decoration: underline;
 }
 
 /* Mobile Styles */

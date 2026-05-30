@@ -7,8 +7,13 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { MetricsCardComponent } from '../dashboard/metrics-card/metrics-card.component';
+import { AppComponent } from 'src/app/app.component';
+import { HttpClient } from '@angular/common/http';
+import { ToastService } from 'src/app/services/toast.service';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -23,27 +28,42 @@ export class AdminLayoutComponent {
   formErrors: string[] = [];
   showPassword: boolean = false;
   isMenuOpen: boolean = false;
+  modalOpen: boolean = false;
+  loadings: boolean[] = [false, false, false, false];
   @ViewChild('wrapper') wrapper!: ElementRef<HTMLElement>;
   @ViewChild('adminHeader') adminHeader!: ElementRef<HTMLElement>;
   loginForm = this.fb.group({
     username: [''],
     password: [''],
   });
-  constructor(private fb: FormBuilder, private router: Router) {
-    const admin = localStorage.getItem('admin');
-    if (admin && admin != 'None') {
+  constructor(private fb: FormBuilder, private router: Router, private http: HttpClient, private toast: ToastService) {
+    const role = localStorage.getItem('adminRole');
+    if (role) {
       this.proceed = true;
     }
   }
+  routerSub!: Subscription;
+
   ngOnInit() {
-    if (this.router.url !== '/admin') {
-      this.formErrors = [];
-      this.formErrors.push(
-        'Access Denied! Please login as admin to access this page.'
-      );
-    } else if (this.proceed) {
-      this.router.navigate(['/admin/dashboard']);
+    this.checkRouteLogic(this.router.url);
+    if (this.router.url === '/admin' && this.proceed) {
+      this.router.navigateByUrl('admin/dashboard')
     }
+    // Listen for subsequent navigations
+    this.routerSub = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.checkRouteLogic(event.url);
+    });
+  }
+  checkRouteLogic(url: string) {
+    const role = localStorage.getItem('adminRole');
+    if (role) {
+      this.proceed = true;
+    } else {
+      this.proceed = false;
+    }
+
   }
   ngAfterViewInit() {
     this.wrapper.nativeElement.style.marginTop =
@@ -53,30 +73,41 @@ export class AdminLayoutComponent {
   onViewPortSizeChange(event: any) {
     this.wrapper.nativeElement.style.marginTop =
       this.adminHeader.nativeElement.offsetHeight + 20 + 'px';
-  }
-  logOut() {
+  } logOut() {
     if (confirm('Are you sure you want to logout?')) {
-      localStorage.setItem('admin', 'None');
+      this.http.post(`${AppComponent.apiLink}/auth/logout`, {},
+        { withCredentials: true }
+      ).subscribe();
+      localStorage.removeItem('adminRole');
+      localStorage.removeItem('adminName');
       this.proceed = false;
       this.router.navigate(['/admin']);
     }
   }
 
+
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+
   onSubmit() {
     if (this.loginForm.valid) {
+      console.log('LOgin starrted')
       const { username, password } = this.loginForm.value;
-      // Replace with your actual admin credentials
-      alert(`Logged in successfully as ${username}`);
-      if (username == 'admin' && password == 'admin@123') {
-        localStorage.setItem('admin', username);
-        this.proceed = true;
-        this.router.navigate([
-          `${this.router.url == 'admin' || '/admin/dashboard'}`,
-        ]);
-      }
+      this.http.post(`${AppComponent.apiLink}/auth/login`,
+        { username, password },
+        { withCredentials: true }
+      ).subscribe({
+        next: (res: any) => {
+          localStorage.setItem('adminRole', res.role);
+          localStorage.setItem('adminName', res.name);
+          this.proceed = true;
+          this.router.navigate(['/admin/dashboard']);
+        },
+        error: () => {
+          this.formErrors = ['Invalid username or password'];
+        }
+      });
     } else {
       this.loginForm.markAllAsTouched();
       this.formErrors = [];
@@ -99,12 +130,40 @@ export class AdminLayoutComponent {
       }
     }
   }
-
   //header functions
   logoClick() {
     this.router.navigate(['/admin/dashboard']);
   }
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+  exportData(type: number) {
+    this.loadings[type] = true;
+    let endpoint = '';
+    if (type === 0) endpoint = 'property-view';
+    else if (type === 1) endpoint = 'properties';
+    else if (type === 2) endpoint = 'contacts';
+    else if (type === 3) endpoint = 'location';
+    this.http.get(`${AppComponent.apiLink}/${endpoint}/export`, {
+      withCredentials: true,
+      responseType: 'blob',
+    }).subscribe({
+      next: (blob: Blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${endpoint}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        this.loadings[type] = false;
+        this.toast.show(`${endpoint} data exported successfully!`, 'success');
+      },
+      error: () => {
+        this.loadings[type] = false;
+        this.toast.show('Error exporting data', 'error');
+      }
+    });
   }
 }

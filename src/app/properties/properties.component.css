@@ -1,0 +1,154 @@
+.properties-page {
+    padding: 2rem 4rem;
+    min-height: 100vh;
+}
+
+.page-header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #1a1a2e;
+}
+
+.page-header p {
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    align-items: start;
+}
+
+.filters-container .filters {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.most-searched-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.most-searched-filters .most-searched-btn {
+    padding: 0.2rem 1rem;
+    border-radius: 2rem;
+    border: 2px rgb(117, 27, 220) solid;
+    background-color: rgba(117, 27, 220, 0.2);
+    cursor: pointer;
+}
+
+.most-searched-filters .most-searched-btn:hover {
+    background-color: rgba(117, 27, 220, 0.4);
+}
+
+.most-searched-filters .most-searched-btn.active {
+    padding: 0.2rem 1rem;
+    border-radius: 2rem;
+    border: 2px rgb(117, 27, 220) solid;
+    background-color: rgb(117, 27, 220);
+    color: white;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+.search-input,
+.filter-select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus,
+.filter-select:focus {
+    border-color: #C9A84C;
+}
+
+.filter-select:disabled {
+    background: #eee;
+    cursor: not-allowed;
+}
+
+.clear-btn {
+    padding: 0.7rem 1.5rem;
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.clear-btn:hover {
+    background: #C9A84C;
+}
+
+.results-info {
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem;
+    color: #666;
+}
+
+.no-results i {
+    font-size: 3rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+}
+
+.no-results h3 {
+    margin-bottom: 0.5rem;
+}
+
+.price-unit {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .properties-page {
+        padding: 1rem;
+    }
+
+    .properties-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-group {
+        min-width: 100%;
+    }
+}

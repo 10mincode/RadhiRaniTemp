@@ -4,10 +4,9 @@ export class Property {
   location!: {
     address: string;
     city: string;
+    locality: string;
     state: string;
     postalCode: string;
-    latitude: number;
-    longitude: number;
     nearbyLandmarks: string[];
   };
   description!: string;
@@ -15,49 +14,22 @@ export class Property {
   status!: string;
   dateListed!: string;
   dateUpdated!: string;
-  actualPrice!: number;
-  showcasePrice!: string;
-  pricePerSqFt!: number;
+  startingPrice!: number;
+  priceUnit!: string;
   minBookingAmount!: number;
-  furnishing!: string;
-  facing!: string;
   propertyAge!: string;
+  yearBuilt!: number;
   legalClearances!: {
     reraId: string;
     approvedBy: string[];
   };
-  features!: {
-    bedrooms: number;
-    bathrooms: number;
-    areaSqFt: number;
-    floor: string;
-    totalFloors: number;
-    yearBuilt: number;
-    amenities: {
-      parks: boolean;
-      garden: boolean;
-      swimmingPool: boolean;
-      gym: boolean;
-      security: boolean;
-      parking: boolean;
-      playArea: boolean;
-      clubHouse: boolean;
-      shoppingCenter: boolean;
-      publicTransport: boolean;
-      cCRoads: boolean;
-      powerBackup: boolean;
-      waterSupply: boolean;
-      wideSewage: boolean;
-      rainWaterHarvesting: boolean;
-      fireSafety: boolean;
-      smartHome: boolean;
-      petFriendly: boolean;
-      movieHall: boolean;
-      accessibility: string[];
-    };
-  };
+  amenities!: string[];
   media!: {
     thumbnail: string;
     images: string[];
   };
+  videoUrls!: string[];
+  views!: number;
+  isFeatured!: boolean;
+  isVisible!: boolean;
 }

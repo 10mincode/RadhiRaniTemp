@@ -15,9 +15,6 @@
         <button class="action-btn" (click)="picker.open()">
           <i class="fas fa-calendar"></i>&nbsp; <span>Date Filter</span>
         </button>
-        <button class="action-btn">
-          <i class="fas fa-download"></i>&nbsp; <span>Export</span>
-        </button>
       </div>
     </div>
     <div class="search">
@@ -44,7 +41,7 @@
           <td class="contact-email" [attr.data-full-email]="`${property.location.city},${property.location.state}`">
             {{ property.location.city }} </td>
           <td class="contact-price">
-            ₹{{property.actualPrice}}</td>
+            ₹{{property.startingPrice}}</td>
           <td class=" contact-date">{{property.dateListed | date: 'd MMM YY'}}</td>
         </tr>
         <tr>

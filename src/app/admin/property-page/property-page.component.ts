@@ -8,12 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { LatestContactsComponent } from '../dashboard/latest-contacts/latest-contacts.component';
 import { MetricsCardComponent } from '../dashboard/metrics-card/metrics-card.component';
 import { ContactService } from 'src/app/services/contact.service';
+import { PriceUnit } from 'src/app/objects/priceUnit.constant';
 @Component({
   selector: 'app-addmin-property-page',
   imports: [
     CommonModule,
     FormsModule,
-    DecimalPipe,
     LatestContactsComponent,
     MetricsCardComponent,
   ],
@@ -31,16 +31,22 @@ export class PropertyPageComponent {
     views: number;
     enquiries: number;
     listings: number;
-  } = { views: 0, enquiries: 0, listings: 1 };
+    unique_views: number;
+  } = { views: 0, unique_views: 0, enquiries: 0, listings: 1 };
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private propertyService: ProjectsService,
-    private contactService: ContactService
-  ) {}
-
+    private contactService: ContactService) { }
+  totalViews: number = 0;
+  uniqueViews: number = 0;
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')!;
+    this.propertyService.getViewStats(id).subscribe((stats) => {
+      console.log(stats);
+      this.data.views = stats.totalViews || 0;
+      this.data.unique_views = stats.uniqueVisitors || 0;
+    });
     this.propertyService.getProjectById(id).subscribe((data) => {
       if (data) {
         (
@@ -56,10 +62,10 @@ export class PropertyPageComponent {
           .getContactMessagesByPropertyId(this.property.propertyId)
           .subscribe(
             (res) =>
-              (this.data = {
-                ...this.data,
-                enquiries: res.length,
-              })
+            (this.data = {
+              ...this.data,
+              enquiries: res.length,
+            })
           );
       }
     });
@@ -71,9 +77,8 @@ export class PropertyPageComponent {
   // changeImage(newImg: string) {
   //   this.property.Media.Thumbnail = newImg;
   // }
-
-  submitEnquiry(form: any) {
-    alert(`Thank you, ${form.name}! Your enquiry has been received.`);
+  getPriceUnit(priceUnit: string) {
+    return PriceUnit[priceUnit as keyof typeof PriceUnit] || priceUnit;
   }
 
   changeImage(e: Event) {

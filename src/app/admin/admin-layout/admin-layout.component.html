@@ -16,6 +16,7 @@
         <li><a routerLink="dashboard" routerLinkActive="active" (click)="toggleMenu()">Dashboard</a></li>
         <li><a routerLink="upload" routerLinkActive="active" (click)="toggleMenu()">Upload</a></li>
         <li><a routerLink="viewall" routerLinkActive="active" (click)="toggleMenu()">VIEW ALL</a></li>
+        <li><a routerLinkActive="active" (click)="toggleMenu(); modalOpen=true;">EXPORT</a></li>
         <li><a (click)="logOut()"
             style="color: red; font-weight: 900;cursor:pointer; border: 2px solid red;border-radius: 0.2rem; padding: 0px 0.3rem;">LOGOUT</a>
         </li>
@@ -49,6 +50,27 @@
         <div *ngFor="let errorMessage of formErrors" class="error-message"> > {{ errorMessage }}</div>
 
       </form>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" *ngIf="modalOpen" (click)="modalOpen=false;">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <h3>Add Locality</h3>
+
+
+    <div class="actions">
+      <button [disabled]="loadings[0]" (click)="exportData(0)">
+        {{ loadings[0] ? 'Exporting Views...' : 'Export Views' }}
+      </button>
+      <button [disabled]="loadings[1]" (click)="exportData(1)">
+        {{ loadings[1] ? 'Exporting Properties...' : 'Export Properties' }}
+      </button>
+      <button [disabled]="loadings[2]" (click)="exportData(2)">
+        {{ loadings[2] ? 'Exporting Enquiries...' : 'Export Enquiries' }}
+      </button>
+      <button [disabled]="loadings[3]" (click)="exportData(3)">
+        {{ loadings[3] ? 'Exporting Locations...' : 'Export Locations' }}
+      </button>
     </div>
   </div>
 </div>
