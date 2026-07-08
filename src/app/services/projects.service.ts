@@ -40,6 +40,9 @@ export class ProjectsService {
       formData
     );
   }
+  updateProperty(id: string, formData: any) {
+    return this.http.put(`${AppComponent.apiLink}/properties/update/${id}`, formData);
+  }
   deleteProperty(id: string): Observable<any> {
     return this.http.delete(`${AppComponent.apiLink}/properties/${id}`);
   }

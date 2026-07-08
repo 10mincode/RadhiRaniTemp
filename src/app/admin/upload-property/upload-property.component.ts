@@ -40,6 +40,10 @@ export class UploadPropertyComponent {
   proceed: any;
   commonAmenities: Amenity[] = AMENITIES['Common'];
   specificAmenities: Amenity[] = [];
+  isEditMode = false;
+  existingThumbnail = ''; // stores existing thumbnail filename
+  existingImages: string[] = []; // stores existing image filenames
+  removedImages: string[] = []; // tracks which existing images to delete
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
@@ -90,13 +94,81 @@ export class UploadPropertyComponent {
 
   ngOnInit(): void {
     this.refreshLocalities();
-    this.propertyId = `PROP${Math.floor(100000 + Math.random() * 900000)}`;
-    this.propertyForm.patchValue({
-      dateListed: new Date().toISOString().split('T')[0],
-    });
-    // Set the generated ID in the form control
-    this.propertyForm.patchValue({ propertyId: this.propertyId });
-    //const admin_id = this.route.snapshot.paramMap.get('admin_id')!;
+    const editId = this.route.snapshot.queryParams['propertyId'];
+    if (editId) {
+      this.isEditMode = true;
+      this.propertyId = editId;
+
+      this.propertyService.getProjectById(editId).subscribe((property: any) => {
+        // Patch basic fields
+        this.propertyForm.patchValue({
+          propertyId: property.propertyId,
+          propertyName: property.propertyName,
+          description: property.description,
+          propertyType: property.propertyType,
+          status: property.status,
+          dateListed: property.dateListed,
+          startingPrice: property.startingPrice,
+          priceUnit: property.priceUnit,
+          yearBuilt: property.yearBuilt,
+          location: property.location,
+          legalClearances: { reraId: property.legalClearances?.reraId || '' }
+        });
+
+        // Set approvedBy input field
+        const approvedByInput = document.getElementById('approvedBy') as HTMLInputElement;
+        if (approvedByInput) {
+          approvedByInput.value = property.legalClearances?.approvedBy?.join(', ') || '';
+        }
+
+        // Set location dropdowns
+        const stateObj = this.statecity.find(s => s.state === property.location?.state);
+        this.citiesList = stateObj ? stateObj.cities : [];
+        const cityObj = this.citiesList.find(c => c.city === property.location?.city);
+        this.localitiesList = cityObj ? cityObj.localities : [];
+
+        // Set landmarks
+        property.location?.nearbyLandmarks?.forEach((lm: string) => {
+          this.nearbyLandmarks.push(this.fb.control(lm));
+        });
+
+        // Set amenities + check checkboxes
+        this.specificAmenities = AMENITIES[property.propertyType] || [];
+        property.amenities?.forEach((amenity: string) => {
+          this.amenities.push(this.fb.control(amenity));
+        });
+        setTimeout(() => {
+          property.amenities?.forEach((amenity: string) => {
+            const checkbox = document.getElementById(amenity) as HTMLInputElement;
+            if (checkbox) checkbox.checked = true;
+          });
+        }, 500);
+
+        // Set existing thumbnail
+        this.existingThumbnail = property.media?.thumbnail || '';
+        this.thumbnail = `${AppComponent.apiLink}/uploads/${property.media?.thumbnail}`;
+        this.propertyForm.get('media.thumbnail')?.setValue(property.media?.thumbnail);
+
+        // Set existing images
+        this.existingImages = [...(property.media?.images || [])];
+        property.media?.images?.forEach((img: string) => {
+          this.imagePreviews.push(`${AppComponent.apiLink}/uploads/${img}`);
+          this.images.push(this.fb.control(img)); // string = existing
+        });
+
+        // Set videos
+        property.videoUrls?.forEach((videoId: string) => {
+          this.videoUrls.push(this.fb.control(videoId));
+        });
+      });
+    } else {
+      this.isEditMode = false;
+      this.propertyId = `PROP${Math.floor(100000 + Math.random() * 900000)}`;
+      this.propertyForm.patchValue({
+        dateListed: new Date().toISOString().split('T')[0],
+        propertyId: this.propertyId
+      });
+    }
   }
   onAmenityChange(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -183,6 +255,12 @@ export class UploadPropertyComponent {
   }
 
   removeImage(index: number) {
+    const imageValue = this.images.at(index).value;
+    // If it's a string (existing image filename) track it for deletion
+    if (typeof imageValue === 'string') {
+      this.removedImages.push(imageValue);
+      this.existingImages = this.existingImages.filter(img => img !== imageValue);
+    }
     this.images.removeAt(index);
     this.imagePreviews.splice(index, 1);
   }
@@ -266,47 +344,67 @@ export class UploadPropertyComponent {
   }
 
   submit() {
-
     let approvedByValue = (document.getElementById('approvedBy') as HTMLInputElement).value;
-
-    // Clear existing first
     this.approvedBy.clear();
-
-    // Push each string separately
     approvedByValue.split(',').forEach(item => {
       const trimmed = item.trim();
       if (trimmed) this.approvedBy.push(this.fb.control(trimmed));
     });
+
     if (this.propertyForm.valid) {
       const formData = new FormData();
       const media = this.propertyForm.get('media')?.value;
 
-      // append files
-      formData.append('thumbnail', media.thumbnail);
-      media.images.forEach((img: File) => {
-        formData.append('images', img);
+      // Thumbnail — only append if new file selected
+      if (media.thumbnail instanceof File) {
+        formData.append('thumbnail', media.thumbnail);
+      } else {
+        // Keep existing
+        formData.append('existingThumbnail', this.existingThumbnail);
+      }
+
+      // Images — separate new files from existing strings
+      const keepImages: string[] = [];
+      this.images.controls.forEach((control) => {
+        if (control.value instanceof File) {
+          formData.append('images', control.value); // new file
+        } else if (typeof control.value === 'string') {
+          keepImages.push(control.value); // existing to keep
+        }
       });
 
+      formData.append('keepImages', JSON.stringify(keepImages));
+      formData.append('removedImages', JSON.stringify(this.removedImages));
 
-      // send form WITHOUT media files
       const propertyCopy = { ...this.propertyForm.value };
-      propertyCopy.media = {}; // clear media completely
+      propertyCopy.media = {};
       formData.append('property', JSON.stringify(propertyCopy));
 
-      this.propertyService.uploadProperty(formData).subscribe(
-        (res) => {
-          console.log('Saved successfully', res);
-          this.imagePreviews = [];
-          this.images.clear();
-          this.propertyForm.reset();
-          this.ngOnInit();
-          alert('Property uploaded successfully! ✅');
-        },
-        (err) => {
-          console.error('Upload failed', err);
-          alert('Upload failed! ⚠️');
-        }
-      );
+      if (this.isEditMode) {
+        this.propertyService.updateProperty(this.propertyId, formData).subscribe(
+          (res) => {
+            alert('Property updated successfully! ✅');
+            window.history.back();
+          },
+          (err) => {
+            console.error('Update failed', err);
+            alert('Update failed! ⚠️');
+          }
+        );
+      } else {
+        this.propertyService.uploadProperty(formData).subscribe(
+          (res) => {
+            alert('Property uploaded successfully! ✅');
+            this.imagePreviews = [];
+            this.images.clear();
+            this.propertyForm.reset();
+            this.ngOnInit();
+          },
+          (err) => {
+            alert('Upload failed! ⚠️');
+          }
+        );
+      }
     }
   }
 }
